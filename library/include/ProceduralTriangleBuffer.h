@@ -53,11 +53,10 @@ class TriangleBuffer
 
 	std::vector<Vertex> mVertices;
 	//std::vector<Vertex>::iterator mCurrentVertex;
-	Vertex* mCurrentVertex;
+	int globalOffset;
 	int mEstimatedVertexCount;
 	int mEstimatedIndexCount;
-	
-	int globalOffset;
+	Vertex* mCurrentVertex;
 	
 	public:
 		TriangleBuffer() : globalOffset(0), mEstimatedVertexCount(0), mEstimatedIndexCount(0), mCurrentVertex(0)//, mCurrentVertex(mVertices.end())
@@ -237,7 +236,7 @@ class TriangleBuffer
 		{
 			it->mNormal = -it->mNormal;
 		}
-		for (int i=0;i<mIndices.size();i++)
+		for (unsigned int i=0; i < mIndices.size(); ++i)
 		{
 			if (i%3==1)
 			{

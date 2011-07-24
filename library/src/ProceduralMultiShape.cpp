@@ -73,8 +73,8 @@ namespace Procedural
 		Real closestSegmentDistance = std::numeric_limits<Real>::max();
 		Vector2 closestSegmentIntersection;
 		const Shape* closestSegmentShape = 0;
-		bool isOnVertexA = false;
-		bool isOnVertexB = false;
+		//bool isOnVertexA = false;
+		//bool isOnVertexB = false;
 		
 		for (size_t k =0;k<mShapes.size();k++)
 		{
