@@ -31,7 +31,7 @@ THE SOFTWARE.
 #include "OgreProceduralMeshGenerator.h"
 #include "OgreProceduralPlatform.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 /// Generates a capsule mesh, i.e. a sphere-terminated cylinder
 class _ProceduralExport CapsuleGenerator : public MeshGenerator<CapsuleGenerator>

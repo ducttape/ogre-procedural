@@ -31,7 +31,7 @@ THE SOFTWARE.
 
 using namespace Ogre;
 
-namespace Procedural {
+namespace OgreProcedural {
 void TubeGenerator::addToTriangleBuffer(TriangleBuffer& buffer) const
 {
 	assert(mHeight>0. && mOuterRadius>0. && mInnerRadius>0. && "Height and radius must be positive");

@@ -31,7 +31,7 @@ THE SOFTWARE.
 #include "OgreProceduralMeshGenerator.h"
 #include "OgreProceduralPlatform.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 /** Builds a rounded box.
  * You can choose the size of the rounded borders to get a sharper or smoother look.

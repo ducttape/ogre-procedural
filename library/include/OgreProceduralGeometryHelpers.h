@@ -32,7 +32,7 @@ THE SOFTWARE.
 #include "OgreVector2.h"
 #include "OgreVector3.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 	class Line;
 //-----------------------------------------------------------------------

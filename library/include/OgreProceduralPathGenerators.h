@@ -27,7 +27,7 @@ THE SOFTWARE.
 */
 #include "OgreProceduralPath.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 //-----------------------------------------------------------------------
 /// Base class for Path generators

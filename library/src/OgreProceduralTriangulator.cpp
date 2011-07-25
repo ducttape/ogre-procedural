@@ -31,7 +31,7 @@ THE SOFTWARE.
 
 using namespace Ogre;
 
-namespace Procedural
+namespace OgreProcedural
 {
 //-----------------------------------------------------------------------
 void Triangulator::Triangle::setVertices(int i0, int i1, int i2)

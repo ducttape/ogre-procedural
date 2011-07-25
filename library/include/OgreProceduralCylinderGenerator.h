@@ -31,7 +31,7 @@ THE SOFTWARE.
 #include "OgreProceduralMeshGenerator.h"
 #include "OgreProceduralPlatform.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 /// Generates a cylinder mesh along Y-axis
 class _ProceduralExport CylinderGenerator : public MeshGenerator<CylinderGenerator>

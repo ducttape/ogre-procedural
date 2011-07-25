@@ -30,7 +30,7 @@ THE SOFTWARE.
 #include "OgreVector3.h"
 #include "OgreAxisAlignedBox.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 /// Holds a bunch of static utility functions
 class Utils

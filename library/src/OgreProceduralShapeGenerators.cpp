@@ -28,7 +28,7 @@ THE SOFTWARE.
 #include "OgreProceduralStableHeaders.h"
 #include "OgreProceduralShapeGenerators.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 //-----------------------------------------------------------------------
 Shape CubicHermiteSpline2::realizeShape()

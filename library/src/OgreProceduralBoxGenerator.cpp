@@ -32,7 +32,7 @@ THE SOFTWARE.
 
 using namespace Ogre;
 
-namespace Procedural
+namespace OgreProcedural
 {
 void BoxGenerator::addToTriangleBuffer(TriangleBuffer& buffer) const
 {

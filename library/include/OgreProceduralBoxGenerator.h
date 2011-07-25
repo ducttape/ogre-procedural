@@ -31,7 +31,7 @@ THE SOFTWARE.
 #include "OgreProceduralMeshGenerator.h"
 #include "OgreProceduralPlatform.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 /** Generates a box mesh centered on the origin.
  * Default size is 1.0 with 1 quad per face.

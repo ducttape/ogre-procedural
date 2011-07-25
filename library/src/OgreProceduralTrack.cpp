@@ -30,7 +30,7 @@ THE SOFTWARE.
 
 using namespace Ogre;
 
-namespace Procedural
+namespace OgreProcedural
 {
 	Real Track::getValue(Real pos) const
 	{

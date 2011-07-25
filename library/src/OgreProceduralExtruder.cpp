@@ -32,7 +32,7 @@ THE SOFTWARE.
 
 using namespace Ogre;
 
-namespace Procedural
+namespace OgreProcedural
 {
 	//-----------------------------------------------------------------------
 	void Extruder::_extrudeBodyImpl(TriangleBuffer& buffer, const Shape* shapeToExtrude) const

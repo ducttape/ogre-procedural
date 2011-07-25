@@ -31,7 +31,7 @@ THE SOFTWARE.
 
 using namespace Ogre;
 
-namespace Procedural
+namespace OgreProcedural
 {
 //-----------------------------------------------------------------------
 	MeshPtr MultiShape::realizeMesh(const std::string& name)

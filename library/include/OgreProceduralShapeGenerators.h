@@ -30,7 +30,7 @@ THE SOFTWARE.
 
 #include "OgreProceduralShape.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 //-----------------------------------------------------------------------
 /// Base class for Shape generators

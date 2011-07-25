@@ -36,7 +36,7 @@ THE SOFTWARE.
 #include "OgreProceduralRoot.h"
 #include "OgreProceduralMultiShape.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 enum Side {SIDE_LEFT, SIDE_RIGHT};
 

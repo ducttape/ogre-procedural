@@ -36,7 +36,7 @@ THE SOFTWARE.
 #include "OgreProceduralMultiShape.h"
 #include "OgreProceduralMeshGenerator.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 typedef std::vector<Ogre::Vector2> PointList;
 

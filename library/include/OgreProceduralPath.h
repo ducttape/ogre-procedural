@@ -35,7 +35,7 @@ THE SOFTWARE.
 #include "OgreProceduralRoot.h"
 #include "OgreProceduralTrack.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 /** Succession of points in 3D space.
  * Can be closed or not.

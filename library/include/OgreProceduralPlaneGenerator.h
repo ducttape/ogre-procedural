@@ -31,7 +31,7 @@ THE SOFTWARE.
 #include "OgreProceduralMeshGenerator.h"
 #include "OgreProceduralPlatform.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 /// Builds a plane mesh
 class _ProceduralExport PlaneGenerator : public MeshGenerator<PlaneGenerator>

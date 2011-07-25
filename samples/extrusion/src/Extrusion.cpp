@@ -32,31 +32,31 @@ THE SOFTWARE.
 void Sample_Extrusion::createScene(void)
 {
 		// Setup Procedural root (crappy init method, have to find another one)
-		Procedural::Root::getInstance()->sceneManager = mSceneMgr;
+		OgreProcedural::Root::getInstance()->sceneManager = mSceneMgr;
 		// Test primitive generation
-		Procedural::PlaneGenerator().setNumSegX(20).setNumSegY(20).setSizeX(150).setSizeY(150).setUTile(5.0).setVTile(5.0).realizeMesh("planeMesh");
+		OgreProcedural::PlaneGenerator().setNumSegX(20).setNumSegY(20).setSizeX(150).setSizeY(150).setUTile(5.0).setVTile(5.0).realizeMesh("planeMesh");
 		putMesh2("planeMesh");
-		//Procedural::Path p = Procedural::Path().addPoint(0,5,0).addPoint(0,4,10).addPoint(10,5,10).addPoint(20,3,0).close();
-		Procedural::Path p = Procedural::CatmullRomSpline3().setNumSeg(8).addPoint(0,5,0).addPoint(0,4,10).addPoint(10,5,10).addPoint(20,3,0).close().realizePath();
-		//Procedural::Shape s = Procedural::Shape().addPoint(-1,0).addPoint(0,1).addPoint(1,0).close();
-		Procedural::Shape s = Procedural::CatmullRomSpline2().addPoint(-1,0).addPoint(0,1).addPoint(1,0).close().realizeShape();
-		Procedural::Extruder().setExtrusionPath(&p).setShapeToExtrude(&s).realizeMesh("extrudedMesh");
+		//OgreProcedural::Path p = OgreProcedural::Path().addPoint(0,5,0).addPoint(0,4,10).addPoint(10,5,10).addPoint(20,3,0).close();
+		OgreProcedural::Path p = OgreProcedural::CatmullRomSpline3().setNumSeg(8).addPoint(0,5,0).addPoint(0,4,10).addPoint(10,5,10).addPoint(20,3,0).close().realizePath();
+		//OgreProcedural::Shape s = OgreProcedural::Shape().addPoint(-1,0).addPoint(0,1).addPoint(1,0).close();
+		OgreProcedural::Shape s = OgreProcedural::CatmullRomSpline2().addPoint(-1,0).addPoint(0,1).addPoint(1,0).close().realizeShape();
+		OgreProcedural::Extruder().setExtrusionPath(&p).setShapeToExtrude(&s).realizeMesh("extrudedMesh");
 		putMesh("extrudedMesh");
 
 		// Not-closed shape
-		Procedural::Shape s2 = Procedural::CatmullRomSpline2().addPoint(0,4).addPoint(5,6).addPoint(1,10).addPoint(5,15).addPoint(0,20).setNumSeg(16).setOutSide(Procedural::SIDE_LEFT).realizeShape();
-		//Procedural::Shape s2 = Procedural::CatmullRomSpline2().addPoint(0,0).addPoint(5,5).addPoint(0,10).setNumSeg(4).setOutSide(Procedural::SIDE_LEFT).realizeShape();
-		//Procedural::Shape s3 = Procedural::KochanekBartelsSpline2().addPoint(0,0).addPoint(Ogre::Vector2(5,5),-1,0,-1).addPoint(0,10).addPoint(5,15).addPoint(0,20).setNumSeg(16).setOutSide(Procedural::SIDE_LEFT).realizeShape();
-		//Procedural::Shape s3 = Procedural::RectangleShape().setWidth(5.).setHeight(5.).realizeShape();
-		Procedural::Shape s3 = Procedural::CircleShape().setRadius(3.).realizeShape();
+		OgreProcedural::Shape s2 = OgreProcedural::CatmullRomSpline2().addPoint(0,4).addPoint(5,6).addPoint(1,10).addPoint(5,15).addPoint(0,20).setNumSeg(16).setOutSide(OgreProcedural::SIDE_LEFT).realizeShape();
+		//OgreProcedural::Shape s2 = OgreProcedural::CatmullRomSpline2().addPoint(0,0).addPoint(5,5).addPoint(0,10).setNumSeg(4).setOutSide(OgreProcedural::SIDE_LEFT).realizeShape();
+		//OgreProcedural::Shape s3 = OgreProcedural::KochanekBartelsSpline2().addPoint(0,0).addPoint(Ogre::Vector2(5,5),-1,0,-1).addPoint(0,10).addPoint(5,15).addPoint(0,20).setNumSeg(16).setOutSide(OgreProcedural::SIDE_LEFT).realizeShape();
+		//OgreProcedural::Shape s3 = OgreProcedural::RectangleShape().setWidth(5.).setHeight(5.).realizeShape();
+		OgreProcedural::Shape s3 = OgreProcedural::CircleShape().setRadius(3.).realizeShape();
 
 
 		// Test Lathe generator
-		Procedural::Lathe().setShapeToExtrude(&s2).realizeMesh("lathedMesh");
+		OgreProcedural::Lathe().setShapeToExtrude(&s2).realizeMesh("lathedMesh");
 		putMesh("lathedMesh");
 
 		// Test triangulator
-		//Procedural::Triangulator::triangulate(s2).transformToMesh(mSceneMgr,"toto");
+		//OgreProcedural::Triangulator::triangulate(s2).transformToMesh(mSceneMgr,"toto");
 		//putMesh("toto");
 
 		// Test display shapes

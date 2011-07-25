@@ -35,7 +35,7 @@ THE SOFTWARE.
 #include "OgreProceduralMultiShape.h"
 #include "OgreProceduralTrack.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 /** Extrudes a 2D shape along a path to build an extruded mesh.
  * Can be used to build things such as pipelines, roads...

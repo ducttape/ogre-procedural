@@ -32,7 +32,7 @@ THE SOFTWARE.
 #include "OgreProceduralPlatform.h"
 #include "OgreProceduralMeshGenerator.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 /** Builds a mesh by rotating a shape 360° around Y-axis.
  * The shape is assumed to be defined in the X>0 half-plane

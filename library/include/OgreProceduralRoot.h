@@ -31,7 +31,7 @@ THE SOFTWARE.
 #include "OgreSceneManager.h"
 #include "OgreProceduralPlatform.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 /** Singleton that holds the general parameters of OgreProcedural.
  * The only required parameter is the scene manager

@@ -31,7 +31,7 @@ THE SOFTWARE.
 #include "OgreProceduralPlatform.h"
 #include "OgreMath.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 /**
  * Represents a curve by interpolating between a list of key/values.

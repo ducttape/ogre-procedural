@@ -31,7 +31,7 @@ THE SOFTWARE.
 #include "OgreProceduralMeshGenerator.h"
 #include "OgreProceduralPlatform.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 /// Builds an Y-axis tube mesh, i.e. an emptied cylinder
 class _ProceduralExport TubeGenerator : public MeshGenerator<TubeGenerator>

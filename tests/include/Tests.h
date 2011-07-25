@@ -31,7 +31,7 @@ THE SOFTWARE.
 #include "BaseApplication.h"
 #include "OgreProcedural.h"
 using namespace Ogre;
-using namespace Procedural;
+using namespace OgreProcedural;
 
 class Unit_Test
 {

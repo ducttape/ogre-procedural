@@ -28,7 +28,7 @@ THE SOFTWARE.
 #include "OgreProceduralStableHeaders.h"
 #include "OgreProceduralUtils.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 	int Utils::counter = 0;
 

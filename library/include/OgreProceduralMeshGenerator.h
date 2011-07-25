@@ -35,7 +35,7 @@ THE SOFTWARE.
 #include "OgreProceduralPlatform.h"
 #include "OgreProceduralTriangleBuffer.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 /** Superclass of everything that builds meshes
  */

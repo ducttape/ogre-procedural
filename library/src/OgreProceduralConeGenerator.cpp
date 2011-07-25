@@ -31,7 +31,7 @@ THE SOFTWARE.
 
 using namespace Ogre;
 
-namespace Procedural
+namespace OgreProcedural
 {
 void ConeGenerator::addToTriangleBuffer(TriangleBuffer& buffer) const
 {

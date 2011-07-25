@@ -29,4 +29,4 @@ THE SOFTWARE.
 #include "OgreProceduralRoot.h"
 
 
-Procedural::Root* Procedural::Root::instance=0;
+OgreProcedural::Root* OgreProcedural::Root::instance=0;

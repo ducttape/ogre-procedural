@@ -30,7 +30,7 @@ THE SOFTWARE.
 
 using namespace Ogre;
 
-namespace Procedural
+namespace OgreProcedural
 {
 void Lathe::addToTriangleBuffer(TriangleBuffer& buffer) const
 	{

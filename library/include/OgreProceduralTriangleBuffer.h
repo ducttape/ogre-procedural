@@ -34,7 +34,7 @@ THE SOFTWARE.
 #include "OgreProceduralUtils.h"
 #include "OgreProceduralRoot.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 /** This is ogre-procedural's temporary mesh buffer.
  * It stores all the info needed to build an Ogre Mesh, yet is intented to be more flexible, since

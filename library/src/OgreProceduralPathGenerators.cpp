@@ -28,7 +28,7 @@ THE SOFTWARE.
 #include "OgreProceduralStableHeaders.h"
 #include "OgreProceduralPathGenerators.h"
 
-namespace Procedural
+namespace OgreProcedural
 {
 //-----------------------------------------------------------------------
 Path CatmullRomSpline3::realizePath()

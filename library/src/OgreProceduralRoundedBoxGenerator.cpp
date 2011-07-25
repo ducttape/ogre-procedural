@@ -32,7 +32,7 @@ THE SOFTWARE.
 
 using namespace Ogre;
 
-namespace Procedural
+namespace OgreProcedural
 {
 
 void RoundedBoxGenerator::_addCorner(TriangleBuffer& buffer, bool isXPositive, bool isYPositive, bool isZPositive) const
