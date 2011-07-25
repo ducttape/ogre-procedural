@@ -5,29 +5,29 @@
 
 # Set docs target directory
 if (WIN32 OR APPLE)
-  set(PROCEDURAL_DOCS_PATH "Docs")
+  set(OgreProcedural_DOCS_PATH "Docs")
 elseif (UNIX)
-  set(PROCEDURAL_DOCS_PATH "share/PROCEDURAL/docs")
+  set(OgreProcedural_DOCS_PATH "share/OgreProcedural/docs")
 endif ()
   
-if (PROCEDURAL_INSTALL_DOCS)
+if (OgreProcedural_INSTALL_DOCS)
   install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/
-    DESTINATION ${PROCEDURAL_DOCS_PATH}
+    DESTINATION ${OgreProcedural_DOCS_PATH}
     PATTERN "src" EXCLUDE
   )
 endif ()
 
 # Build and install API documentation if doxygen is available
 if(DOXYGEN_FOUND)
-	configure_file(${PROCEDURAL_TEMPLATES_DIR}/html.cfg.in ${PROCEDURAL_BINARY_DIR}/html.cfg)
+	configure_file(${OgreProcedural_TEMPLATES_DIR}/html.cfg.in ${OgreProcedural_BINARY_DIR}/html.cfg)
 	add_custom_target(doc COMMAND 
-    ${DOXYGEN_EXECUTABLE} ${PROCEDURAL_BINARY_DIR}/html.cfg 
-    WORKING_DIRECTORY ${PROCEDURAL_SOURCE_DIR}/Docs/src/ 
+    ${DOXYGEN_EXECUTABLE} ${OgreProcedural_BINARY_DIR}/html.cfg 
+    WORKING_DIRECTORY ${OgreProcedural_SOURCE_DIR}/Docs/src/ 
     COMMENT "Building documentation" VERBATIM
   )
-	file(WRITE ${PROCEDURAL_BINARY_DIR}/api/temp.txt "This file should be deleted before installation. It is only here to force the creation of the api folder")
-	file(REMOVE ${PROCEDURAL_BINARY_DIR}/api/temp.txt)
-	if (PROCEDURAL_INSTALL_DOCS)
-		install(DIRECTORY ${PROCEDURAL_BINARY_DIR}/api DESTINATION ${PROCEDURAL_DOCS_PATH})
+	file(WRITE ${OgreProcedural_BINARY_DIR}/api/temp.txt "This file should be deleted before installation. It is only here to force the creation of the api folder")
+	file(REMOVE ${OgreProcedural_BINARY_DIR}/api/temp.txt)
+	if (OgreProcedural_INSTALL_DOCS)
+		install(DIRECTORY ${OgreProcedural_BINARY_DIR}/api DESTINATION ${OgreProcedural_DOCS_PATH})
 	endif()
 endif()

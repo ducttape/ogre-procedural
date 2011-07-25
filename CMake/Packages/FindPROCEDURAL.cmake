@@ -1,67 +1,67 @@
 include(FindPkgMacros)
 include(PreprocessorUtils)
 
-findpkg_begin(PROCEDURAL)
+findpkg_begin(OgreProcedural)
 
-getenv_path(PROCEDURAL_HOME)
+getenv_path(OgreProcedural_HOME)
 getenv_path(PROGRAMFILES)
-getenv_path(PROCEDURAL_SOURCE)
+getenv_path(OgreProcedural_SOURCE)
 
 # construct search paths from environmental hints and
 # OS specific guesses
 if (WIN32)
-  set(PROCEDURAL_PREFIX_GUESSES
-    ${ENV_PROGRAMFILES}/PROCEDURAL
+  set(OgreProcedural_PREFIX_GUESSES
+    ${ENV_PROGRAMFILES}/OgreProcedural
     C:/ProceduralSDK
   )
 elseif (UNIX)
-  set(PROCEDURAL_PREFIX_GUESSES
+  set(OgreProcedural_PREFIX_GUESSES
     /opt/procedural
-    /opt/PROCEDURAL
+    /opt/OgreProcedural
     /usr/lib${LIB_SUFFIX}/procedural
-    /usr/lib${LIB_SUFFIX}/PROCEDURAL
+    /usr/lib${LIB_SUFFIX}/OgreProcedural
     /usr/local/lib${LIB_SUFFIX}/procedural
-    /usr/local/lib${LIB_SUFFIX}/PROCEDURAL
+    /usr/local/lib${LIB_SUFFIX}/OgreProcedural
     $ENV{HOME}/procedural
-    $ENV{HOME}/PROCEDURAL
+    $ENV{HOME}/OgreProcedural
   )
 endif ()
-set(PROCEDURAL_PREFIX_PATH
-  ${PROCEDURAL_HOME} ${PROCEDURAL_SDK} ${ENV_PROCEDURAL_HOME} ${ENV_PROCEDURAL_SDK}
-  ${PROCEDURAL_PREFIX_GUESSES}
+set(OgreProcedural_PREFIX_PATH
+  ${OgreProcedural_HOME} ${OgreProcedural_SDK} ${ENV_OgreProcedural_HOME} ${ENV_OgreProcedural_SDK}
+  ${OgreProcedural_PREFIX_GUESSES}
 )
-create_search_paths(PROCEDURAL)
+create_search_paths(OgreProcedural)
 
-# If both PROCEDURAL_BUILD and PROCEDURAL_SOURCE are set, prepare to find Ogre in a build dir
-set(PROCEDURAL_PREFIX_SOURCE ${PROCEDURAL_SOURCE} ${ENV_PROCEDURAL_SOURCE})
-set(PROCEDURAL_PREFIX_BUILD ${PROCEDURAL_BUILD} ${ENV_PROCEDURAL_BUILD})
-set(PROCEDURAL_PREFIX_DEPENDENCIES_DIR ${PROCEDURAL_DEPENDENCIES_DIR} ${ENV_PROCEDURAL_DEPENDENCIES_DIR})
-if (PROCEDURAL_PREFIX_SOURCE AND PROCEDURAL_PREFIX_BUILD)
-  foreach(dir ${PROCEDURAL_PREFIX_SOURCE})
-    set(PROCEDURAL_INC_SEARCH_PATH ${dir}/library/include ${PROCEDURAL_INC_SEARCH_PATH})
-    set(PROCEDURAL_LIB_SEARCH_PATH ${dir}/lib ${PROCEDURAL_LIB_SEARCH_PATH})
+# If both OgreProcedural_BUILD and OgreProcedural_SOURCE are set, prepare to find Ogre in a build dir
+set(OgreProcedural_PREFIX_SOURCE ${OgreProcedural_SOURCE} ${ENV_OgreProcedural_SOURCE})
+set(OgreProcedural_PREFIX_BUILD ${OgreProcedural_BUILD} ${ENV_OgreProcedural_BUILD})
+set(OgreProcedural_PREFIX_DEPENDENCIES_DIR ${OgreProcedural_DEPENDENCIES_DIR} ${ENV_OgreProcedural_DEPENDENCIES_DIR})
+if (OgreProcedural_PREFIX_SOURCE AND OgreProcedural_PREFIX_BUILD)
+  foreach(dir ${OgreProcedural_PREFIX_SOURCE})
+    set(OgreProcedural_INC_SEARCH_PATH ${dir}/library/include ${OgreProcedural_INC_SEARCH_PATH})
+    set(OgreProcedural_LIB_SEARCH_PATH ${dir}/lib ${OgreProcedural_LIB_SEARCH_PATH})
   endforeach(dir)
-  foreach(dir ${PROCEDURAL_PREFIX_BUILD})
-    set(PROCEDURAL_INC_SEARCH_PATH ${dir}/include ${PROCEDURAL_INC_SEARCH_PATH})
-    set(PROCEDURAL_LIB_SEARCH_PATH ${dir}/lib ${PROCEDURAL_LIB_SEARCH_PATH})
-    set(PROCEDURAL_BIN_SEARCH_PATH ${dir}/bin ${PROCEDURAL_BIN_SEARCH_PATH})
+  foreach(dir ${OgreProcedural_PREFIX_BUILD})
+    set(OgreProcedural_INC_SEARCH_PATH ${dir}/include ${OgreProcedural_INC_SEARCH_PATH})
+    set(OgreProcedural_LIB_SEARCH_PATH ${dir}/lib ${OgreProcedural_LIB_SEARCH_PATH})
+    set(OgreProcedural_BIN_SEARCH_PATH ${dir}/bin ${OgreProcedural_BIN_SEARCH_PATH})
   endforeach(dir)
 else()
-  set(PROCEDURAL_PREFIX_SOURCE "NOTFOUND")
-  set(PROCEDURAL_PREFIX_BUILD "NOTFOUND")
+  set(OgreProcedural_PREFIX_SOURCE "NOTFOUND")
+  set(OgreProcedural_PREFIX_BUILD "NOTFOUND")
 endif ()
 
-set(PROCEDURAL_PREFIX_SOURCE ${PROCEDURAL_SOURCE} ${ENV_PROCEDURAL_SOURCE})
-set(PROCEDURAL_PREFIX_BUILD ${PROCEDURAL_BUILD} ${ENV_PROCEDURAL_BUILD})
+set(OgreProcedural_PREFIX_SOURCE ${OgreProcedural_SOURCE} ${ENV_OgreProcedural_SOURCE})
+set(OgreProcedural_PREFIX_BUILD ${OgreProcedural_BUILD} ${ENV_OgreProcedural_BUILD})
 
 
-set(PROCEDURAL_LIBRARY_NAMES "OgreProcedural")
-get_debug_names(PROCEDURAL_LIBRARY_NAMES)
+set(OgreProcedural_LIBRARY_NAMES "OgreProcedural")
+get_debug_names(OgreProcedural_LIBRARY_NAMES)
 
-find_path(PROCEDURAL_INCLUDE_DIR NAMES Procedural.h HINTS ${PROCEDURAL_CONFIG_INCLUDE_DIR} ${PROCEDURAL_INC_SEARCH_PATH} ${PROCEDURAL_FRAMEWORK_INCLUDES} ${PROCEDURAL_PKGC_INCLUDE_DIRS} PATH_SUFFIXES "PROCEDURAL")
+find_path(OgreProcedural_INCLUDE_DIR NAMES Procedural.h HINTS ${OgreProcedural_CONFIG_INCLUDE_DIR} ${OgreProcedural_INC_SEARCH_PATH} ${OgreProcedural_FRAMEWORK_INCLUDES} ${OgreProcedural_PKGC_INCLUDE_DIRS} PATH_SUFFIXES "OgreProcedural")
 
-find_library(PROCEDURAL_LIBRARY_REL NAMES ${PROCEDURAL_LIBRARY_NAMES} HINTS ${PROCEDURAL_LIB_SEARCH_PATH} PATH_SUFFIXES "" "release" "relwithdebinfo" "minsizerel")
-find_library(PROCEDURAL_LIBRARY_DBG NAMES ${PROCEDURAL_LIBRARY_NAMES_DBG} HINTS ${PROCEDURAL_LIB_SEARCH_PATH} PATH_SUFFIXES "" "debug")
-make_library_set(PROCEDURAL_LIBRARY)
+find_library(OgreProcedural_LIBRARY_REL NAMES ${OgreProcedural_LIBRARY_NAMES} HINTS ${OgreProcedural_LIB_SEARCH_PATH} PATH_SUFFIXES "" "release" "relwithdebinfo" "minsizerel")
+find_library(OgreProcedural_LIBRARY_DBG NAMES ${OgreProcedural_LIBRARY_NAMES_DBG} HINTS ${OgreProcedural_LIB_SEARCH_PATH} PATH_SUFFIXES "" "debug")
+make_library_set(OgreProcedural_LIBRARY)
 
-findpkg_finish(PROCEDURAL)
+findpkg_finish(OgreProcedural)

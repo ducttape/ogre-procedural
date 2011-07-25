@@ -1,2 +1,2 @@
-install(FILES Packages/FindPROCEDURAL.cmake
+install(FILES Packages/FindOgreProcedural.cmake
     DESTINATION ${CMAKE_ROOT}/Modules)

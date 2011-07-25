@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 2.6)
 
-project(OgreProcedural)
-
 include(PrecompiledHeader)
 include(ProceduralConfigTargets)
 
@@ -24,7 +22,7 @@ set( HDRS
 	include/ProceduralUtils.h
 	include/ProceduralExtruder.h
 	include/ProceduralLathe.h
-	include/ProceduralShape.h	
+	include/ProceduralShape.h
 	include/ProceduralShapeGenerators.h
 	include/ProceduralPath.h
 	include/ProceduralPathGenerators.h
@@ -32,7 +30,7 @@ set( HDRS
 	include/ProceduralTriangulator.h
 	include/ProceduralTriangleBuffer.h
 	include/ProceduralStableHeaders.h
-	include/ProceduralMultiShape.h	
+	include/ProceduralMultiShape.h
 	include/ProceduralGeometryHelpers.h
 	)
 
@@ -48,9 +46,9 @@ set( SRCS
 		src/ProceduralSphereGenerator.cpp
 		src/ProceduralTorusGenerator.cpp
 		src/ProceduralTorusKnotGenerator.cpp
-		src/ProceduralTubeGenerator.cpp		
+		src/ProceduralTubeGenerator.cpp
 		src/ProceduralUtils.cpp
-		src/ProceduralShape.cpp		
+		src/ProceduralShape.cpp
 		src/ProceduralShapeGenerators.cpp
 		src/ProceduralPath.cpp
 		src/ProceduralPathGenerators.cpp
@@ -67,7 +65,7 @@ include_directories( ${OIS_INCLUDE_DIRS}
 	${OGRE_INCLUDE_DIRS}
 	${OGRE_SAMPLES_INCLUDEPATH}
 )
-add_definitions(-DPROCEDURAL_NONCLIENT_BUILD -Wall -Werror -Wno-unused-parameter -Wno-unused-but-set-parameter -pedantic -std=c++0x)
+add_definitions(-DOgreProcedural_NONCLIENT_BUILD -Wall -Werror -Wno-unused-parameter -Wno-unused-but-set-parameter -pedantic -std=c++0x)
 
 add_library(OgreProcedural SHARED ${HDRS} ${SRCS})
 
@@ -81,19 +79,19 @@ endif (UNIX)
 
 target_link_libraries(OgreProcedural ${OGRE_LIBRARIES} ${OIS_LIBRARIES})
 
-#install(TARGETS OgreProcedural 
+#install(TARGETS OgreProcedural
 #		BUNDLE DESTINATION "bin"
 #		RUNTIME DESTINATION "bin"
-#		LIBRARY DESTINATION "lib"		
-#		ARCHIVE DESTINATION "lib"		
+#		LIBRARY DESTINATION "lib"
+#		ARCHIVE DESTINATION "lib"
 #		FRAMEWORK DESTINATION "lib")
 
 procedural_install_target(OgreProcedural)
-		
+
 install(FILES ${HDRS} DESTINATION include)
 
 # specify a precompiled header to use
-use_precompiled_header(OgreProcedural 
+use_precompiled_header(OgreProcedural
   "${CMAKE_CURRENT_SOURCE_DIR}/include/ProceduralStableHeaders.h"
   "${CMAKE_CURRENT_SOURCE_DIR}/src/ProceduralPrecompiledHeaders.cpp"
 )
