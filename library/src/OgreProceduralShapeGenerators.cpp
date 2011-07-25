@@ -69,14 +69,14 @@ Shape CatmullRomSpline2::realizeShape()
 
 		unsigned int numPoints = mClosed ? mPoints.size() : (mPoints.size() - 1);
 		for (unsigned int i = 0; i < numPoints; ++i)
-		{			
+		{
 			const Ogre::Vector2& P1 = safeGetPoint(i-1);
 			const Ogre::Vector2& P2 = safeGetPoint(i);
 			const Ogre::Vector2& P3 = safeGetPoint(i+1);
 			const Ogre::Vector2& P4 = safeGetPoint(i+2);
 
 			for (unsigned int j = 0;j < mNumSeg; ++j)
-			{				
+			{
 				Ogre::Real t = (Ogre::Real)j/(Ogre::Real)mNumSeg;
 				Ogre::Real t2 = t*t;
 				Ogre::Real t3 = t*t2;
@@ -96,10 +96,10 @@ Shape CatmullRomSpline2::realizeShape()
 		return shape;
 	}
 //-----------------------------------------------------------------------
-	Shape KochanekBartelsSpline2::realizeShape()	
+	Shape KochanekBartelsSpline2::realizeShape()
 	{
 		Shape shape;
-		
+
 		unsigned int numPoints = mClosed ? mPoints.size() : (mPoints.size() - 1);
 		for (unsigned int i = 0; i < numPoints; ++i)
 		{
@@ -107,10 +107,10 @@ Shape CatmullRomSpline2::realizeShape()
 			const ControlPoint& p0 = safeGetPoint(i);
 			const ControlPoint& p1 = safeGetPoint(i+1);
 			const ControlPoint& p2 = safeGetPoint(i+2);
-			
+
 			Ogre::Vector2 m0 = (1-p0.tension)*(1+p0.bias)*(1+p0.continuity)/2.f*(p0.position-pm1.position)+(1-p0.tension)*(1-p0.bias)*(1-p0.continuity)/2.f*(p1.position-p0.position);
 			Ogre::Vector2 m1 = (1-p1.tension)*(1+p1.bias)*(1-p1.continuity)/2.f*(p1.position-p0.position)+(1-p1.tension)*(1-p1.bias)*(1+p1.continuity)/2.f*(p2.position-p1.position);
-			
+
 			for (unsigned int j = 0; j < mNumSeg; ++j)
 			{
 				Ogre::Real t = (Ogre::Real)j/(Ogre::Real)mNumSeg;

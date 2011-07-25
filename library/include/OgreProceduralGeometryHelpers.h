@@ -42,18 +42,18 @@ class Circle
 	private:
 	Ogre::Vector2 mCenter;
 	Ogre::Real mRadius;
-	
+
 	public:
 
 	Circle() {}
-	
+
 	/// Contructor with arguments
 	Circle(Ogre::Vector2 center, Ogre::Real radius) : mCenter(center), mRadius(radius)
 	{}
-	
+
 	/// Contructor with arguments
-	Circle(Ogre::Vector2 p1, Ogre::Vector2 p2, Ogre::Vector2 p3);	
-	
+	Circle(Ogre::Vector2 p1, Ogre::Vector2 p2, Ogre::Vector2 p3);
+
 	/// Tells whether that point is inside the circle or not
 	bool isPointInside(const Ogre::Vector2& p) const
 	{
@@ -66,7 +66,7 @@ class Plane : public Ogre::Plane
 {
 public:
 	Plane() : Ogre::Plane() {}
-	
+
 	/// Contructor with arguments
 	Plane(const Ogre::Vector3& normal, const Ogre::Vector3& pos) : Ogre::Plane(normal, pos) {}
 
@@ -87,7 +87,7 @@ class Line
 
 public:
 	Line() {}
-	
+
 	/// Contructor with arguments
 	/// @arg point a point on the line
 	/// @arg direction a normalized vector representing the direction of that line
@@ -110,14 +110,14 @@ class Segment2D
 	Ogre::Vector2 mA;
 	Ogre::Vector2 mB;
 	public:
-		
+
 	/// Contructor with arguments
 	Segment2D(Ogre::Vector2 a, Ogre::Vector2 b) : mA(a), mB(b) {}
 
 	/// Returns point A
 	Ogre::Vector2 getA()
 	{
-		return mA;	
+		return mA;
 	}
 
 	/// Returns point B
@@ -126,7 +126,7 @@ class Segment2D
 		return mB;
 	}
 
-	/**	  
+	/**
 	 * Computes the interesction between current segment and another segment
 	 * @arg the other segment
 	 * @arg intersection the point of intersection if outputed there if it exists

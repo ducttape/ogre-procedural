@@ -42,7 +42,7 @@ class _ProceduralExport BoxGenerator : public MeshGenerator<BoxGenerator>
 	int mNumSegX,mNumSegY,mNumSegZ;
 public:
 	/// Contructor with arguments
-	BoxGenerator(Ogre::Real sizeX=1.f, Ogre::Real sizeY=1.f, Ogre::Real sizeZ=1.f, int numSegX=1, int numSegY=1, int numSegZ=1) : 
+	BoxGenerator(Ogre::Real sizeX=1.f, Ogre::Real sizeY=1.f, Ogre::Real sizeZ=1.f, int numSegX=1, int numSegY=1, int numSegZ=1) :
 	  mSizeX(sizeX), mSizeY(sizeY), mSizeZ(sizeZ), mNumSegX(numSegX), mNumSegY(numSegY), mNumSegZ(numSegZ) {}
 
 	/** Sets size along X axis (default=1) */

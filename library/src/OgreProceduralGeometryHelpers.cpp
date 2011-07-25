@@ -47,10 +47,10 @@ Circle::Circle(Vector2 p1, Vector2 p2, Vector2 p3)
 	float a2 = d3.y;
 	float b2 = -d3.x;
 	float g2 = d3.x*c3.y-d3.y*c3.x;
-	
+
 	Vector2 intersect;
 	float intersectx = (b2*g1-b1*g2)/(b1*a2-b2*a1);
-	float intersecty = (a2*g1-a1*g2)/(a1*b2-a2*b1);		
+	float intersecty = (a2*g1-a1*g2)/(a1*b2-a2*b1);
 
 	intersect = Vector2(intersectx, intersecty);
 
@@ -59,7 +59,7 @@ Circle::Circle(Vector2 p1, Vector2 p2, Vector2 p3)
 }
 //-----------------------------------------------------------------------
 bool Segment2D::findIntersect(const Segment2D& other, Vector2& intersection) const
-	{		
+	{
 		const Vector2& p1 = mA;
 		const Vector2& p2 = mB;
 		const Vector2& p3 = other.mA;
@@ -70,7 +70,7 @@ bool Segment2D::findIntersect(const Segment2D& other, Vector2& intersection) con
 		float a1 = d1.y;
 		float b1 = -d1.x;
 		float g1 = d1.x*p1.y-d1.y*p1.x;
-				
+
 		Vector2 d3 = p4-p3;
 		float a2 = d3.y;
 		float b2 = -d3.x;
@@ -79,11 +79,11 @@ bool Segment2D::findIntersect(const Segment2D& other, Vector2& intersection) con
 		// if both segments are parallel, early out
 		if (d1.crossProduct(d3) == 0.)
 			return false;
-	
+
 		Vector2 intersect;
 		float intersectx = (b2*g1-b1*g2)/(b1*a2-b2*a1);
-		float intersecty = (a2*g1-a1*g2)/(a1*b2-a2*b1);		
-	
+		float intersecty = (a2*g1-a1*g2)/(a1*b2-a2*b1);
+
 		intersect = Vector2(intersectx, intersecty);
 
 		if ((intersect-p1).dotProduct(intersect-p2)<0 && (intersect-p3).dotProduct(intersect-p4)<0)
@@ -108,13 +108,13 @@ bool Segment2D::intersects(const Segment2D& other) const
 }
 //-----------------------------------------------------------------------
 bool Plane::intersect(const Plane& other, Line& outputLine) const
-	{		
+	{
 		//TODO : handle the case where the plane is perpendicular to T
 		Vector3 point1(0.f);
 		Vector3 direction = normal.crossProduct(other.normal);
 		if (direction.squaredLength() < 1e-08)
 			return false;
-		
+
 		Real cp = normal.x*other.normal.y-other.normal.x*normal.y;
 		if (cp!=0)
 		{
@@ -127,15 +127,15 @@ bool Plane::intersect(const Plane& other, Line& outputLine) const
 			Real denom = 1.f/cp;
 			point1.x = 0;
 			point1.y = (normal.z*other.d-other.normal.z*d)*denom;
-			point1.z = (other.normal.y*d-normal.y*other.d)*denom;			
+			point1.z = (other.normal.y*d-normal.y*other.d)*denom;
 		} else if ((cp= normal.x*other.normal.z-other.normal.x*normal.z)!=0)
-		{ //special case #2			
-			Real denom = 1.f/cp;			
+		{ //special case #2
+			Real denom = 1.f/cp;
 			point1.x = (normal.z*other.d-other.normal.z*d)*denom;
 			point1.y = 0;
-			point1.z = (other.normal.x*d-normal.x*other.d)*denom;			
+			point1.z = (other.normal.x*d-normal.x*other.d)*denom;
 		}
-		
+
 		outputLine = Line(point1, direction);
 
 		return true;

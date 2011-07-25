@@ -42,7 +42,7 @@ class _ProceduralExport Lathe : public MeshGenerator<Lathe>
 	Shape* mShapeToExtrude;
 	int mNumSeg;
 
-public:	
+public:
 	/// Contructor with arguments
 	Lathe(Shape* shapeToExtrude = 0, int numSeg = 16) : mShapeToExtrude(shapeToExtrude), mNumSeg(numSeg)
 	{}
@@ -53,7 +53,7 @@ public:
 		mNumSeg = numSeg;
 		return *this;
 	}
-	
+
 	/** Sets the shape to extrude */
 	inline Lathe & setShapeToExtrude(Shape* shapeToExtrude)
 	{

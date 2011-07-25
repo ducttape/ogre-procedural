@@ -77,7 +77,7 @@ public:
 	 * @param name of the mesh for the MeshManager
 	 * @param group ressource group in which the mesh will be created
 	 */
-	Ogre::MeshPtr realizeMesh(const std::string& name = "", 
+	Ogre::MeshPtr realizeMesh(const std::string& name = "",
 		const Ogre::String& group = Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME)
 	{
 		TriangleBuffer tbuffer;
@@ -89,7 +89,7 @@ public:
 			mesh = tbuffer.transformToMesh(name, group);
 		return mesh;
 	}
-		
+
 	/**
 	 * Overloaded by each generator to implement the specifics
 	 */
@@ -106,7 +106,7 @@ public:
 
 	/**
 	 * Sets V Tile, ie the number by which v texture coordinates are multiplied (default=1)
-	 */	
+	 */
 	inline T & setVTile(Ogre::Real vTile)
 	{
 		mVTile = vTile;
@@ -115,7 +115,7 @@ public:
 
 	/**
 	 * Sets the texture rectangle
-	 */	
+	 */
 	inline T & setTextureRectangle(Ogre::Rectangle textureRectangle)
 	{
 		mUVOrigin = Ogre::Vector2(textureRectangle.top, textureRectangle.left);
@@ -123,10 +123,10 @@ public:
 		mVTile = textureRectangle.bottom-textureRectangle.top;
 		return static_cast<T&>(*this);
 	}
-	
+
 	/**
 	 * Sets whether normals are enabled or not (default=true)
-	 */	
+	 */
 	inline T & setEnableNormals(bool enableNormals)
 	{
 		mEnableNormals = enableNormals;

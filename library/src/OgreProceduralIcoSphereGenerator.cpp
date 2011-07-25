@@ -192,7 +192,7 @@ void IcoSphereGenerator::addToTriangleBuffer(TriangleBuffer& buffer) const
 			}
 		}
 	}
-	
+
 	/// Step 5 : realize
 	buffer.rebaseOffset();
 	buffer.estimateVertexCount(vertices.size());

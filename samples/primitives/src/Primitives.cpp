@@ -32,7 +32,7 @@ THE SOFTWARE.
 void Sample_Primitives::createScene(void)
 {
 
-		
+
 // Setup Procedural root (crappy init method, have to find another one)
 		Procedural::Root::getInstance()->sceneManager = mSceneMgr;
 		// Test primitive generation
@@ -57,7 +57,7 @@ void Sample_Primitives::createScene(void)
 		Procedural::IcoSphereGenerator().setRadius(2.).setNumIterations(3).setUTile(5.).setVTile(5.).realizeMesh("icoSphereMesh");
 		putMesh("icoSphereMesh", Vector3(10,10,10));
 		Procedural::RoundedBoxGenerator().setSizeX(1.f).setSizeY(5.f).setSizeZ(5.f).setChamferSize(1.f).realizeMesh("roundedBoxMesh");
-		putMesh("roundedBoxMesh", Vector3(20,10,10));		
+		putMesh("roundedBoxMesh", Vector3(20,10,10));
 }
 
 void Sample_Primitives::createCamera(void)
@@ -78,7 +78,7 @@ void Sample_Primitives::createCamera(void)
 	l->setDirection(Vector3(0,-1,1).normalisedCopy());
 	l->setDiffuseColour(ColourValue(.7f,.5f,.5f));
 	l->setSpecularColour(ColourValue::White);
-		
+
 	movingLight = mSceneMgr->createLight("movingLight");
 	movingLight->setType(Light::LT_POINT);
 	movingLight->setDiffuseColour(ColourValue(.5f,.5f,.7f));

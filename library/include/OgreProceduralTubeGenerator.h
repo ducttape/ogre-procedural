@@ -44,7 +44,7 @@ class _ProceduralExport TubeGenerator : public MeshGenerator<TubeGenerator>
 
 public:
 	/// Constructor with arguments
-	TubeGenerator(Ogre::Real outerRadius=2.f, Ogre::Real innerRadius=1.f, Ogre::Real height=1.f, int numSegBase=16, int numSegHeight=1) : 
+	TubeGenerator(Ogre::Real outerRadius=2.f, Ogre::Real innerRadius=1.f, Ogre::Real height=1.f, int numSegBase=16, int numSegHeight=1) :
 	    mNumSegBase(numSegBase),
 		mNumSegHeight(numSegHeight),
 		mOuterRadius(outerRadius),
@@ -57,7 +57,7 @@ public:
 	 */
 	void addToTriangleBuffer(TriangleBuffer& buffer) const;
 
-	/** Sets the number of segments when rotating around the tube's axis (default=16) */	
+	/** Sets the number of segments when rotating around the tube's axis (default=16) */
 	inline TubeGenerator & setNumSegBase(int numSegBase)
 	{
 		mNumSegBase = numSegBase;

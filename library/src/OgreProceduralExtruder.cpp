@@ -33,7 +33,7 @@ THE SOFTWARE.
 using namespace Ogre;
 
 namespace Procedural
-{	
+{
 	//-----------------------------------------------------------------------
 	void Extruder::_extrudeBodyImpl(TriangleBuffer& buffer, const Shape* shapeToExtrude) const
 	{
@@ -62,7 +62,7 @@ namespace Procedural
 		buffer.rebaseOffset();
 		buffer.estimateIndexCount(numSegShape*numSegPath*6);
 		buffer.estimateVertexCount((numSegShape+1)*(numSegPath+1));
-				
+
 		for (unsigned int i = 0; i <= numSegPath; ++i)
 		{
 			Vector3 v0 = path.getPoint(i);
@@ -71,9 +71,9 @@ namespace Procedural
 			Quaternion q = Utils::_computeQuaternion(direction);
 
 			Real scale=1.;
-					
+
 			if (i>0) lineicPos += (v0-path.getPoint(i-1)).length();
-			
+
 			// Get the values of angle and scale
 			if (mRotationTrack)
 			{
@@ -93,29 +93,29 @@ namespace Procedural
 				// Vector2 vp2direction = shapeToExtrude->getAvgDirection(j);
 				Vector2 vp2normal = shapeToExtrude->getAvgNormal(j);
 				Vector3 vp(vp2.x, vp2.y, 0);
-				Vector3 normal(vp2normal.x, vp2normal.y, 0);							
+				Vector3 normal(vp2normal.x, vp2normal.y, 0);
 				buffer.rebaseOffset();
 				Vector3 newPoint = v0+q*(scale*vp);
 
 				addPoint(buffer, newPoint,
-					q*normal, 
+					q*normal,
 					Vector2(i/(Real)numSegPath, j/(Real)numSegShape));
 
 				if (j <numSegShape && i <numSegPath)
-				{		
+				{
 					if (shapeToExtrude->getOutSide() == SIDE_LEFT)
 					{
 						buffer.triangle(numSegShape + 1, numSegShape + 2, 0);
 						buffer.triangle(0, numSegShape + 2, 1);
 					}
-					else 
+					else
 					{
 						buffer.triangle(numSegShape + 2, numSegShape + 1, 0);
 						buffer.triangle(numSegShape + 2, 0, 1);
 					}
-				}			
-			}			
-		}			
+				}
+			}
+		}
 	}
 	//-----------------------------------------------------------------------
 	void Extruder::_extrudeCapImpl(TriangleBuffer& buffer) const
@@ -142,7 +142,7 @@ namespace Procedural
 		{
 			Real angle = mRotationTrack->getFirstValue();
 			qBegin = qBegin*Quaternion((Radian)angle, Vector3::UNIT_Z);
-		}	
+		}
 		Real scaleBegin=1.;
 		if (mScaleTrack)
 			scaleBegin = mScaleTrack->getFirstValue();
@@ -150,7 +150,7 @@ namespace Procedural
 		{
 			Vector2 vp2 = pointList[j];
 			Vector3 vp(vp2.x, vp2.y, 0);
-			Vector3 normal = -Vector3::UNIT_Z;				
+			Vector3 normal = -Vector3::UNIT_Z;
 
 			Vector3 newPoint = mExtrusionPath->getPoint(0)+qBegin*(scaleBegin*vp);
 			addPoint(buffer, newPoint,
@@ -159,7 +159,7 @@ namespace Procedural
 		}
 
 		for (size_t i=0;i<indexBuffer.size()/3;i++)
-		{				
+		{
 			buffer.index(indexBuffer[i*3]);
 			buffer.index(indexBuffer[i*3+2]);
 			buffer.index(indexBuffer[i*3+1]);
@@ -172,7 +172,7 @@ namespace Procedural
 		{
 			Real angle = mRotationTrack->getLastValue();
 			qEnd = qEnd*Quaternion((Radian)angle, Vector3::UNIT_Z);
-		}			
+		}
 		Real scaleEnd=1.;
 		if (mScaleTrack)
 			scaleEnd = mScaleTrack->getLastValue();
@@ -181,7 +181,7 @@ namespace Procedural
 		{
 			Vector2 vp2 = pointList[j];
 			Vector3 vp(vp2.x, vp2.y, 0);
-			Vector3 normal = Vector3::UNIT_Z;				
+			Vector3 normal = Vector3::UNIT_Z;
 
 			Vector3 newPoint = mExtrusionPath->getPoint(mExtrusionPath->getSegCount())+qEnd*(scaleEnd*vp);
 			addPoint(buffer, newPoint,
@@ -190,7 +190,7 @@ namespace Procedural
 		}
 
 		for (size_t i=0;i<indexBuffer.size()/3;i++)
-		{				
+		{
 			buffer.index(indexBuffer[i*3]);
 			buffer.index(indexBuffer[i*3+1]);
 			buffer.index(indexBuffer[i*3+2]);
@@ -209,9 +209,9 @@ namespace Procedural
 
 		if (mShapeToExtrude)
 			_extrudeBodyImpl(buffer, mShapeToExtrude);
-		else 
+		else
 		{
-			for (int i=0; i<mMultiShapeToExtrude->getShapeCount();i++)			
+			for (int i=0; i<mMultiShapeToExtrude->getShapeCount();i++)
 				_extrudeBodyImpl(buffer, &mMultiShapeToExtrude->getShape(i));
 		}
 	}

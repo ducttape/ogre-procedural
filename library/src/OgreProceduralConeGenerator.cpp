@@ -41,7 +41,7 @@ void ConeGenerator::addToTriangleBuffer(TriangleBuffer& buffer) const
 	buffer.rebaseOffset();
 	buffer.estimateVertexCount((mNumSegHeight+1)*(mNumSegBase+1)+mNumSegBase+2);
 	buffer.estimateIndexCount(mNumSegHeight*mNumSegBase*6+3*mNumSegBase);
-	
+
 	Real deltaAngle = (Math::TWO_PI / mNumSegBase);
 	Real deltaHeight = mHeight/(Real)mNumSegHeight;
 	int offset = 0;

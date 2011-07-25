@@ -28,7 +28,7 @@ THE SOFTWARE.
 #include "OgreProceduralStableHeaders.h"
 #include "OgreProceduralPathGenerators.h"
 
-namespace Procedural 
+namespace Procedural
 {
 //-----------------------------------------------------------------------
 Path CatmullRomSpline3::realizePath()
@@ -37,14 +37,14 @@ Path CatmullRomSpline3::realizePath()
 
 		unsigned int numPoints = mClosed ? mPoints.size() : (mPoints.size()-1);
 		for (unsigned int i=0; i < numPoints; ++i)
-		{			
+		{
 			const Ogre::Vector3& P1 = safeGetPoint(i-1);
 			const Ogre::Vector3& P2 = safeGetPoint(i);
 			const Ogre::Vector3& P3 = safeGetPoint(i+1);
 			const Ogre::Vector3& P4 = safeGetPoint(i+2);
 
 			for (unsigned int j = 0; j < mNumSeg; ++j)
-			{				
+			{
 				Ogre::Real t = (Ogre::Real)j/(Ogre::Real)mNumSeg;
 				Ogre::Real t2 = t*t;
 				Ogre::Real t3 = t*t2;

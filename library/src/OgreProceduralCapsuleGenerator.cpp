@@ -51,13 +51,13 @@ void CapsuleGenerator::addToTriangleBuffer(TriangleBuffer& buffer) const
 	// Top half sphere
 
 	// Generate the group of rings for the sphere
-	for(unsigned int ring = 0; ring <= mNumRings; ring++ ) 
+	for(unsigned int ring = 0; ring <= mNumRings; ring++ )
 	{
 		Real r0 = mRadius * sinf ( ring * fDeltaRingAngle);
 		Real y0 = mRadius * cosf (ring * fDeltaRingAngle);
 
 		// Generate the group of segments for the current ring
-		for(unsigned int seg = 0; seg <= mNumSegments; seg++) 
+		for(unsigned int seg = 0; seg <= mNumSegments; seg++)
 		{
 			Real x0 = r0 * cosf(seg * fDeltaSegAngle);
 			Real z0 = r0 * sinf(seg * fDeltaSegAngle);
@@ -66,7 +66,7 @@ void CapsuleGenerator::addToTriangleBuffer(TriangleBuffer& buffer) const
 			addPoint(buffer, Vector3(x0, 0.5f*mHeight + y0, z0),
 							 Vector3(x0, y0, z0).normalisedCopy(),
 							 Vector2((Real) seg / (Real) mNumSegments, (Real) ring / (Real) mNumRings * sphereRatio));
-			
+
 			// each vertex (except the last) has six indices pointing to it
 			buffer.index(offset + mNumSegments + 1);
 			buffer.index(offset + mNumSegments);
@@ -74,7 +74,7 @@ void CapsuleGenerator::addToTriangleBuffer(TriangleBuffer& buffer) const
 			buffer.index(offset + mNumSegments + 1);
 			buffer.index(offset);
 			buffer.index(offset + 1);
-			
+
 			offset ++;
 		} // end for seg
 	} // end for ring
@@ -106,23 +106,23 @@ void CapsuleGenerator::addToTriangleBuffer(TriangleBuffer& buffer) const
 	// Bottom half sphere
 
 	// Generate the group of rings for the sphere
-	for(unsigned int ring = 0; ring <= mNumRings; ring++) 
+	for(unsigned int ring = 0; ring <= mNumRings; ring++)
 	{
 		Real r0 = mRadius * sinf (Math::HALF_PI + ring * fDeltaRingAngle);
 		Real y0 =  mRadius * cosf (Math::HALF_PI + ring * fDeltaRingAngle);
 
 		// Generate the group of segments for the current ring
-		for(unsigned int seg = 0; seg <= mNumSegments; seg++) 
+		for(unsigned int seg = 0; seg <= mNumSegments; seg++)
 		{
 			Real x0 = r0 * cosf(seg * fDeltaSegAngle);
 			Real z0 = r0 * sinf(seg * fDeltaSegAngle);
 
 			// Add one vertex to the strip which makes up the sphere
-			addPoint(buffer, Vector3(x0, -0.5f*mHeight + y0, z0), 
-							 Vector3(x0, y0, z0).normalisedCopy(), 
+			addPoint(buffer, Vector3(x0, -0.5f*mHeight + y0, z0),
+							 Vector3(x0, y0, z0).normalisedCopy(),
 							 Vector2((Real) seg / (Real) mNumSegments, (Real) ring / (Real) mNumRings*sphereRatio + cylinderRatio + sphereRatio));
-			
-			if (ring != mNumRings) 
+
+			if (ring != mNumRings)
 			{
 				// each vertex (except the last) has six indices pointing to it
 				buffer.index(offset + mNumSegments + 1);
@@ -134,6 +134,6 @@ void CapsuleGenerator::addToTriangleBuffer(TriangleBuffer& buffer) const
 			}
 			offset ++;
 		} // end for seg
-	} // end for ring		
+	} // end for ring
 }
 }

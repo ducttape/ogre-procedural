@@ -77,6 +77,6 @@ void Lathe::addToTriangleBuffer(TriangleBuffer& buffer) const
 				}
 				offset ++;
 			}
-		}		
+		}
 	}
 }

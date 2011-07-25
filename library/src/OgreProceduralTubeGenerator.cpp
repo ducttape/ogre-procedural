@@ -41,7 +41,7 @@ void TubeGenerator::addToTriangleBuffer(TriangleBuffer& buffer) const
 	buffer.rebaseOffset();
 	buffer.estimateVertexCount((mNumSegHeight+1)*(mNumSegBase+1)*2+(mNumSegBase+1)*4);
 	buffer.estimateIndexCount(6*(mNumSegBase+1)*mNumSegHeight*2+6*mNumSegBase*2);
-	
+
 	Real deltaAngle = (Math::TWO_PI / mNumSegBase);
 	Real deltaHeight = mHeight/(Real)mNumSegHeight;
 	int offset = 0;
@@ -55,7 +55,7 @@ void TubeGenerator::addToTriangleBuffer(TriangleBuffer& buffer) const
 									Vector3(x0,0,z0).normalisedCopy(),
 									Vector2(j/(Real)mNumSegBase, i/(Real)mNumSegHeight));
 
-			if (i != mNumSegHeight) 
+			if (i != mNumSegHeight)
 			{
 				buffer.index(offset + mNumSegBase + 1);
 				buffer.index(offset);
@@ -76,7 +76,7 @@ void TubeGenerator::addToTriangleBuffer(TriangleBuffer& buffer) const
 							 -Vector3(x0,0,z0).normalisedCopy(),
 							 Vector2(j/(Real)mNumSegBase, i/(Real)mNumSegHeight));
 
-			if (i != mNumSegHeight) 
+			if (i != mNumSegHeight)
 			{
 				buffer.index(offset + mNumSegBase + 1);
 				buffer.index(offset + mNumSegBase);

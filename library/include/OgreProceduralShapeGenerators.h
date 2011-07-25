@@ -47,7 +47,7 @@ protected:
 public:
 	/// Default constructor
 	BaseSpline2() : mNumSeg(4), mClosed(false), mOutSide(SIDE_RIGHT) {}
-	
+
 	/// Sets the out side of the shape
 	T& setOutSide(Side outSide)
 	{
@@ -82,18 +82,18 @@ public:
  * Produces a shape from Cubic Hermite control points
  */
 class _ProceduralExport CubicHermiteSpline2 : public BaseSpline2<CubicHermiteSpline2>
-{	
+{
 	struct ControlPoint
 	{
 		Ogre::Vector2 position;
 		Ogre::Vector2 tangentBefore;
-		Ogre::Vector2 tangentAfter;	
-		
+		Ogre::Vector2 tangentAfter;
+
 		ControlPoint(Ogre::Vector2 p, Ogre::Vector2 before, Ogre::Vector2 after) : position(p), tangentBefore(before), tangentAfter(after) {}
 	};
 
-	std::vector<ControlPoint> mPoints;	
-	
+	std::vector<ControlPoint> mPoints;
+
 public:
 	/// Adds a control point
 	void addPoint(Ogre::Vector2 p, Ogre::Vector2 before, Ogre::Vector2 after)
@@ -120,9 +120,9 @@ public:
  * A catmull-rom smoothly interpolates position between control points
  */
 class _ProceduralExport CatmullRomSpline2 : public BaseSpline2<CatmullRomSpline2>
-{	
+{
 	std::vector<Ogre::Vector2> mPoints;
-	public:	
+	public:
 	/// Adds a control point
 	CatmullRomSpline2& addPoint(const Ogre::Vector2& pt)
 	{
@@ -136,7 +136,7 @@ class _ProceduralExport CatmullRomSpline2 : public BaseSpline2<CatmullRomSpline2
 		mPoints.push_back(Ogre::Vector2(x,y));
 		return *this;
 	}
-	
+
 	/// Safely gets a control point
 	const Ogre::Vector2& safeGetPoint(int i) const
 	{
@@ -144,7 +144,7 @@ class _ProceduralExport CatmullRomSpline2 : public BaseSpline2<CatmullRomSpline2
 			return mPoints[Utils::modulo(i,mPoints.size())];
 		return mPoints[Utils::cap(i,0,mPoints.size()-1)];
 	}
-	
+
 	/**
 	 * Build a shape from bezier control points
 	 */
@@ -158,20 +158,20 @@ class _ProceduralExport CatmullRomSpline2 : public BaseSpline2<CatmullRomSpline2
  * More details here : http://en.wikipedia.org/wiki/Kochanek%E2%80%93Bartels_spline
  */
 class _ProceduralExport KochanekBartelsSpline2 : public BaseSpline2<KochanekBartelsSpline2>
-{	
+{
 	struct ControlPoint
 	{
 		Ogre::Vector2 position;
 		Ogre::Real tension;
 		Ogre::Real bias;
 		Ogre::Real continuity;
-		
+
 		ControlPoint(Ogre::Vector2 p, Ogre::Real t, Ogre::Real b, Ogre::Real c) : position(p), tension(t), bias(b), continuity(c) {}
 		ControlPoint(Ogre::Vector2 p) : position(p), tension(0.), bias(0.), continuity(0.) {}
 	};
 
 	std::vector<ControlPoint> mPoints;
-	
+
 public:
 	/// Adds a control point
 	KochanekBartelsSpline2& addPoint(Ogre::Real x, Ogre::Real y)
@@ -212,7 +212,7 @@ public:
 	 * Builds a shape from control points
 	 */
 	Shape realizeShape();
-	
+
 };
 
 //-----------------------------------------------------------------------

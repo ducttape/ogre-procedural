@@ -49,7 +49,7 @@ public:
 		mNumSegSection(numSegSection),
 		mNumSegCircle(numSegCircle),
 		mRadius(radius),
-		mSectionRadius(sectionRadius), 
+		mSectionRadius(sectionRadius),
 		mP(p),
 		mQ(q) {}
 
@@ -100,7 +100,7 @@ public:
 		mQ = q;
 		return *this;
 	}
-	
+
 };
 }
 #endif

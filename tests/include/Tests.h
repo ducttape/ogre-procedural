@@ -34,7 +34,7 @@ using namespace Ogre;
 using namespace Procedural;
 
 class Unit_Test
-{	
+{
 protected:
 	SceneManager* mSceneMgr;
 
@@ -70,7 +70,7 @@ protected:
 
 public:
 	Unit_Test(SceneManager* sn) : mSceneMgr(sn) {}
-	
+
 	virtual String getDescription()=0;
 	virtual void initImpl()=0;
 
@@ -91,16 +91,16 @@ public:
 
 	void destroy()
 	{
-		for (std::vector<SceneNode*>::iterator it = mSceneNodes.begin(); it != mSceneNodes.end(); it++) 
+		for (std::vector<SceneNode*>::iterator it = mSceneNodes.begin(); it != mSceneNodes.end(); it++)
 		{
 			(*it)->detachAllObjects();
 			mSceneMgr->destroySceneNode(*it);
 		}
 		for (std::vector<Entity*>::iterator it = mEntities.begin(); it != mEntities.end(); it++)
 		{
-			MeshManager::getSingletonPtr()->remove((*it)->getMesh()->getName());			
+			MeshManager::getSingletonPtr()->remove((*it)->getMesh()->getName());
 			mSceneMgr->destroyEntity(*it);
-		}		
+		}
 		mEntities.clear();
 		mSceneNodes.clear();
 	}
@@ -113,7 +113,7 @@ class Unit_Tests : public BaseApplication
 	/* --------------------------------------------------------------------------- */
 	class Test_Primitives : public Unit_Test
 	{
-	public:		
+	public:
 		Test_Primitives(SceneManager* sn) : Unit_Test(sn) {}
 
 		String getDescription()
@@ -122,14 +122,14 @@ class Unit_Tests : public BaseApplication
 		}
 
 		void initImpl()
-		{			
+		{
 			putMesh(BoxGenerator().realizeMesh(), 1);
 			putMesh(CapsuleGenerator().realizeMesh(), 1);
 			putMesh(ConeGenerator().realizeMesh(), 1);
 			putMesh(CylinderGenerator().realizeMesh(), 1);
 			putMesh(IcoSphereGenerator().realizeMesh(), 1);
 			putMesh(PlaneGenerator().realizeMesh(), 1);
-			putMesh(RoundedBoxGenerator().realizeMesh(), 1);			
+			putMesh(RoundedBoxGenerator().realizeMesh(), 1);
 			putMesh(SphereGenerator().realizeMesh(), 1);
 			putMesh(TorusGenerator().realizeMesh(), 1);
 			putMesh(TorusKnotGenerator().realizeMesh(), 1);
@@ -140,7 +140,7 @@ class Unit_Tests : public BaseApplication
 	/* --------------------------------------------------------------------------- */
 	class Test_SharpAngles : public Unit_Test
 	{
-	public:		
+	public:
 		Test_SharpAngles(SceneManager* sn) : Unit_Test(sn) {}
 
 		String getDescription()
@@ -164,7 +164,7 @@ class Unit_Tests : public BaseApplication
 	/* --------------------------------------------------------------------------- */
 	/*class Test_RollerCoaster : public Unit_Test
 	{
-	public:		
+	public:
 		Test_RollerCoaster(SceneManager* sn) : Unit_Test(sn) {}
 
 		String getDescription()
@@ -184,7 +184,7 @@ class Unit_Tests : public BaseApplication
 			MultiShape ms;
 			ms.addShape(s).addShape(s2).addShape(s3);
 			CatmullRomSpline3 crs;
-			
+
 			Ogre::Vector3 v(0,10,0);
 			for (int i=0;i<100;i++)
 			{
@@ -202,7 +202,7 @@ class Unit_Tests : public BaseApplication
 	/* --------------------------------------------------------------------------- */
 	class Test_Triangulation : public Unit_Test
 	{
-	public:		
+	public:
 		Test_Triangulation(SceneManager* sn) : Unit_Test(sn) {}
 
 		String getDescription()
@@ -222,18 +222,18 @@ class Unit_Tests : public BaseApplication
 				ms.addShape(s);
 			}
 			putMesh(ms.realizeMesh());
-						
+
 			putMesh(Triangulator().setMultiShapeToTriangulate(&ms).realizeMesh());
 
 			Path p = LinePath().realizePath();
 			Extruder().setMultiShapeToExtrude(&ms).setExtrusionPath(&p).realizeMesh("extrudedMesh");
 			putMesh("extrudedMesh",1);
 
-			Shape s = Shape().addPoint(0.2,.9).addPoint(1,0).addPoint(1,1).addPoint(0,1).addPoint(0,2).addPoint(2,2).addPoint(2,-1).addPoint(0.,-.2).setOutSide(SIDE_LEFT).close();			
+			Shape s = Shape().addPoint(0.2,.9).addPoint(1,0).addPoint(1,1).addPoint(0,1).addPoint(0,2).addPoint(2,2).addPoint(2,-1).addPoint(0.,-.2).setOutSide(SIDE_LEFT).close();
 			putMesh(s.realizeMesh());
 			putMesh(Triangulator().setShapeToTriangulate(&s).realizeMesh());
 
-			Shape s3 = CircleShape().setNumSeg(8).realizeShape();						
+			Shape s3 = CircleShape().setNumSeg(8).realizeShape();
 			putMesh(Triangulator().setShapeToTriangulate(&s3).realizeMesh());
 
 			s3.translate(Vector2(.5,0));
@@ -244,7 +244,7 @@ class Unit_Tests : public BaseApplication
 	/* --------------------------------------------------------------------------- */
 	class Test_ShapeBoolean : public Unit_Test
 	{
-	public:		
+	public:
 		Test_ShapeBoolean(SceneManager* sn) : Unit_Test(sn) {}
 
 		String getDescription()
@@ -257,13 +257,13 @@ class Unit_Tests : public BaseApplication
 			//CSG
 			Shape s1 = CircleShape().realizeShape();
 			Shape s2 = RectangleShape().setWidth(0.5).setHeight(2).realizeShape();
-			
+
 			s1.realizeMesh("contour1");
 			putMesh("contour1");
 			s2.realizeMesh("contour2");
 			putMesh("contour2");
 			MultiShape s;
-			s = s1.booleanIntersect(s2);			
+			s = s1.booleanIntersect(s2);
 			s.realizeMesh("contourinter");
 			putMesh("contourinter");
 			s = s1.booleanUnion(s2);
@@ -278,7 +278,7 @@ class Unit_Tests : public BaseApplication
 	/* --------------------------------------------------------------------------- */
 	class Test_ShapeThick : public Unit_Test
 	{
-	public:		
+	public:
 		Test_ShapeThick(SceneManager* sn) : Unit_Test(sn) {}
 
 		String getDescription()
@@ -305,7 +305,7 @@ class Unit_Tests : public BaseApplication
 		/* --------------------------------------------------------------------------- */
 	class Test_Splines : public Unit_Test
 	{
-	public:		
+	public:
 		Test_Splines(SceneManager* sn) : Unit_Test(sn) {}
 
 		String getDescription()
@@ -346,7 +346,7 @@ class Unit_Tests : public BaseApplication
 	/* --------------------------------------------------------------------------- */
 	class Test_Extruder : public Unit_Test
 	{
-	public:		
+	public:
 		Test_Extruder(SceneManager* sn) : Unit_Test(sn) {}
 
 		String getDescription()
@@ -362,11 +362,11 @@ class Unit_Tests : public BaseApplication
 			Path line2 = LinePath().betweenPoints(Vector3(1,10,0), Vector3::ZERO).setNumSeg(2).realizePath();
 			Extruder e;
 			e.setCapped(false);
-			
+
 			// linear extrusion
-			putMesh(e.setShapeToExtrude(&shape).setExtrusionPath(&line).realizeMesh(),1);			
-			putMesh(e.setShapeToExtrude(&shape2).setExtrusionPath(&line).realizeMesh(),1);			
-			putMesh(e.setShapeToExtrude(&shape).setExtrusionPath(&line2).realizeMesh(),1);			
+			putMesh(e.setShapeToExtrude(&shape).setExtrusionPath(&line).realizeMesh(),1);
+			putMesh(e.setShapeToExtrude(&shape2).setExtrusionPath(&line).realizeMesh(),1);
+			putMesh(e.setShapeToExtrude(&shape).setExtrusionPath(&line2).realizeMesh(),1);
 			putMesh(e.setShapeToExtrude(&shape2).setExtrusionPath(&line2).realizeMesh(),1);
 
 			// extrusion with rotation and scale track
@@ -423,7 +423,7 @@ class Unit_Tests : public BaseApplication
 	/* --------------------------------------------------------------------------- */
 	class Test_Lathe : public Unit_Test
 	{
-	public:		
+	public:
 		Test_Lathe(SceneManager* sn) : Unit_Test(sn) {}
 
 		String getDescription()
@@ -444,7 +444,7 @@ class Unit_Tests : public BaseApplication
 	/* --------------------------------------------------------------------------- */
 	class Test_InvertNormals : public Unit_Test
 	{
-	public:		
+	public:
 		Test_InvertNormals(SceneManager* sn) : Unit_Test(sn) {}
 
 		String getDescription()
@@ -489,13 +489,13 @@ class Unit_Tests : public BaseApplication
 
 protected:
 	bool keyReleased( const OIS::KeyEvent &arg )
-	{		
+	{
 		if (arg.key == OIS::KC_ADD || arg.key == OIS::KC_PGDOWN)
 		{
 			nextTest();
 			return true;
 		}
-		if (arg.key == OIS::KC_SUBTRACT || arg.key == OIS::KC_PGUP)		
+		if (arg.key == OIS::KC_SUBTRACT || arg.key == OIS::KC_PGUP)
 		{
 			previousTest();
 			return true;
@@ -521,11 +521,11 @@ protected:
 	}
 
 	virtual void createScene(void);
-	
+
 	virtual void createCamera(void);
 
 	virtual void createViewports(void);
-	
+
 	virtual bool frameStarted(const FrameEvent& evt);
 public:
 	Unit_Tests() : mCurrentTestIndex(0)

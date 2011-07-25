@@ -43,7 +43,7 @@ class _ProceduralExport SphereGenerator : public MeshGenerator<SphereGenerator>
 
 public:
 	/// Constructor with arguments
-	SphereGenerator(Ogre::Real radius = 1.f, int numRings = 16, int numSegments = 16) : 
+	SphereGenerator(Ogre::Real radius = 1.f, int numRings = 16, int numSegments = 16) :
 	  mRadius(radius),mNumRings(numRings), mNumSegments(numSegments)
 
 	{}
@@ -68,7 +68,7 @@ public:
 		mNumSegments = numSegments;
 		return *this;
 	}
-	
+
 	/**
 	 * Builds the mesh into the given TriangleBuffer
 	 * @param buffer The TriangleBuffer on where to append the mesh.

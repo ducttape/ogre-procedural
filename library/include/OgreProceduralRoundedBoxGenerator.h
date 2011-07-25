@@ -42,7 +42,7 @@ class _ProceduralExport RoundedBoxGenerator : public MeshGenerator<RoundedBoxGen
 	unsigned short mNumSegX,mNumSegY,mNumSegZ;
 	Ogre::Real mChamferSize;
 	unsigned short mChamferNumSeg;
-		
+
 public:
 	RoundedBoxGenerator() : mSizeX(1.f), mSizeY(1.f), mSizeZ(1.f),
 		mNumSegX(1), mNumSegY(1), mNumSegZ(1), mChamferSize(.1f), mChamferNumSeg(8) {}
@@ -103,10 +103,10 @@ public:
 	void addToTriangleBuffer(TriangleBuffer& buffer) const;
 
 private:
-	
+
 	/// Internal. Builds an "edge" of the rounded box, ie a quarter cylinder
 	void _addEdge(TriangleBuffer& buffer, short xPos, short yPos, short zPos) const;
-	
+
 	/// Internal. Builds a "corner" of the rounded box, ie a 1/8th of a sphere
 	void _addCorner(TriangleBuffer& buffer, bool isXPositive, bool isYPositive, bool isZPositive) const;
 

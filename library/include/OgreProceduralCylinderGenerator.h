@@ -42,9 +42,9 @@ class _ProceduralExport CylinderGenerator : public MeshGenerator<CylinderGenerat
 	Ogre::Real mRadius;
 	Ogre::Real mHeight;
 
-public:	
+public:
 	/// Contructor with arguments
-	CylinderGenerator(Ogre::Real radius = 1.f, Ogre::Real height = 1.f, int numSegBase = 16, int numSegHeight = 1, bool capped = true) : 
+	CylinderGenerator(Ogre::Real radius = 1.f, Ogre::Real height = 1.f, int numSegBase = 16, int numSegHeight = 1, bool capped = true) :
 	    mNumSegBase(numSegBase),
 		mNumSegHeight(numSegHeight),
 		mCapped(capped),

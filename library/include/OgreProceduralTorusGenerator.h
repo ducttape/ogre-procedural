@@ -43,7 +43,7 @@ class _ProceduralExport TorusGenerator : public MeshGenerator<TorusGenerator>
 	Ogre::Real mSectionRadius;
 public:
 	/// Constructor with arguments
-	TorusGenerator(Ogre::Real radius=1.f, Ogre::Real sectionRadius=.2f, int numSegSection=16, int numSegCircle=16) : 
+	TorusGenerator(Ogre::Real radius=1.f, Ogre::Real sectionRadius=.2f, int numSegSection=16, int numSegCircle=16) :
 		mNumSegSection(numSegSection),
 		mNumSegCircle(numSegCircle),
 		mRadius(radius),
@@ -54,7 +54,7 @@ public:
 	 * @param buffer The TriangleBuffer on where to append the mesh.
 	 */
 	void addToTriangleBuffer(TriangleBuffer& buffer) const;
-	
+
 	/** Sets the number of segments on the section circle */
 	inline TorusGenerator & setNumSegSection(int numSegSection)
 	{

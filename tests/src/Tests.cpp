@@ -31,8 +31,8 @@ THE SOFTWARE.
 //-------------------------------------------------------------------------------------
 void Unit_Tests::createScene(void)
 {
-	
-	Ogre::Overlay* o = Ogre::OverlayManager::getSingleton().create("myOverlay");	
+
+	Ogre::Overlay* o = Ogre::OverlayManager::getSingleton().create("myOverlay");
 	Ogre::OverlayContainer* cont = (Ogre::OverlayContainer*)OverlayManager::getSingleton().createOverlayElement("Panel","myCont");
 	o->add2D(cont);
 	Ogre::OverlayElement* el = OverlayManager::getSingleton().createOverlayElement("TextArea","myText");
@@ -47,7 +47,7 @@ void Unit_Tests::createScene(void)
 		// Register all unit tests
 		mUnitTests.push_back(new Test_Primitives(mSceneMgr));
 		mUnitTests.push_back(new Test_SharpAngles(mSceneMgr));
-		mUnitTests.push_back(new Test_Triangulation(mSceneMgr));		
+		mUnitTests.push_back(new Test_Triangulation(mSceneMgr));
 		mUnitTests.push_back(new Test_ShapeBoolean(mSceneMgr));
 		mUnitTests.push_back(new Test_Extruder(mSceneMgr));
 		mUnitTests.push_back(new Test_Lathe(mSceneMgr));
@@ -65,8 +65,8 @@ void Unit_Tests::createCamera(void)
 	mSceneMgr->setShadowTechnique(Ogre::SHADOWTYPE_TEXTURE_MODULATIVE);
 	mSceneMgr->setShadowFarDistance(100.0);
 	mSceneMgr->setShadowTextureSize(1024);
-	mSceneMgr->setAmbientLight(ColourValue(0.5,0.5,0.5));	
-	
+	mSceneMgr->setAmbientLight(ColourValue(0.5,0.5,0.5));
+
 	// Setup camera and light
 	mCamera->setNearClipDistance(.5);
 	mCamera->setPosition(0,10,-50);

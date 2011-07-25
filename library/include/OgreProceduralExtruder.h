@@ -53,12 +53,12 @@ class _ProceduralExport Extruder : public MeshGenerator<Extruder>
 	void _extrudeBodyImpl(TriangleBuffer& buffer, const Shape* shapeToExtrude) const;
 
 	void _extrudeCapImpl(TriangleBuffer& buffer) const;
-	
+
 public:
 	/// Default constructor
 	Extruder() : mShapeToExtrude(0), mExtrusionPath(0), mCapped(true), mFixSharpAngles(false), mRotationTrack(0), mScaleTrack(0)
 	{}
-	
+
 	/**
 	 * Builds the mesh into the given TriangleBuffer
 	 * @param buffer The TriangleBuffer on where to append the mesh.
@@ -111,7 +111,7 @@ public:
 
 	/// WIP
 	/// Sets the FixSharpAngles option (default = false)
-	/// When enabled, extruder tries to prevent the generated mesh to self intersect when 
+	/// When enabled, extruder tries to prevent the generated mesh to self intersect when
 	/// the angles coming from the path are too sharp
 	inline Extruder & setFixSharpAngles(bool fixSharpAngles)
 	{

@@ -33,7 +33,7 @@ THE SOFTWARE.
 
 namespace Procedural
 {
-/// Generates a capsule mesh, i.e. a sphere-terminated cylinder 
+/// Generates a capsule mesh, i.e. a sphere-terminated cylinder
 class _ProceduralExport CapsuleGenerator : public MeshGenerator<CapsuleGenerator>
 {
 	///Radius of the spheric part
@@ -55,7 +55,7 @@ public:
 	/// Constructor with arguments
 	CapsuleGenerator(Ogre::Real radius, Ogre::Real height, unsigned int numRings, unsigned int numSegments, unsigned int numSegHeight) :
 	mRadius(radius), mHeight(height), mNumRings(numRings), mNumSegments(numSegments), mNumSegHeight(numSegHeight) {}
-	
+
 	/**
 	 * Builds the mesh into the given TriangleBuffer
 	 * @param buffer The TriangleBuffer on where to append the mesh.

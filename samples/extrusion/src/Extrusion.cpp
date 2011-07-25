@@ -43,7 +43,7 @@ void Sample_Extrusion::createScene(void)
 		Procedural::Extruder().setExtrusionPath(&p).setShapeToExtrude(&s).realizeMesh("extrudedMesh");
 		putMesh("extrudedMesh");
 
-		// Not-closed shape		
+		// Not-closed shape
 		Procedural::Shape s2 = Procedural::CatmullRomSpline2().addPoint(0,4).addPoint(5,6).addPoint(1,10).addPoint(5,15).addPoint(0,20).setNumSeg(16).setOutSide(Procedural::SIDE_LEFT).realizeShape();
 		//Procedural::Shape s2 = Procedural::CatmullRomSpline2().addPoint(0,0).addPoint(5,5).addPoint(0,10).setNumSeg(4).setOutSide(Procedural::SIDE_LEFT).realizeShape();
 		//Procedural::Shape s3 = Procedural::KochanekBartelsSpline2().addPoint(0,0).addPoint(Ogre::Vector2(5,5),-1,0,-1).addPoint(0,10).addPoint(5,15).addPoint(0,20).setNumSeg(16).setOutSide(Procedural::SIDE_LEFT).realizeShape();

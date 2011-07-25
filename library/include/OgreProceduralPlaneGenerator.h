@@ -48,7 +48,7 @@ public:
 		normal(Ogre::Vector3::UNIT_Y),
 		sizeX(1), sizeY(1),position(Ogre::Vector3::ZERO)
 	{}
-	
+
 	/**
 	 * Builds the mesh into the given TriangleBuffer
 	 * @param buffer The TriangleBuffer on where to append the mesh.

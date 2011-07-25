@@ -40,9 +40,9 @@ class _ProceduralExport IcoSphereGenerator : public MeshGenerator<IcoSphereGener
 	Ogre::Real mRadius;
 	unsigned int mNumIterations;
 
-public:	
+public:
 	/// Contructor with arguments
-	IcoSphereGenerator(Ogre::Real radius = 1.f, unsigned int numIterations = 2) : 
+	IcoSphereGenerator(Ogre::Real radius = 1.f, unsigned int numIterations = 2) :
 		mRadius(radius),
 		mNumIterations(numIterations)
 	{}

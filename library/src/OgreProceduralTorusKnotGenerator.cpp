@@ -60,7 +60,7 @@ void TorusKnotGenerator::addToTriangleBuffer(TriangleBuffer& buffer) const
 		Vector3 v0(x0,y0,z0);
 		Vector3 v1(x1,y1,z1);
 		Vector3 direction((v1-v0).normalisedCopy());
-				
+
 		Quaternion q = Utils::_computeQuaternion(direction);
 
 		for (int j =0;j<=mNumSegSection;j++)

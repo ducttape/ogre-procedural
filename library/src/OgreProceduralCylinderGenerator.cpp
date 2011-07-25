@@ -43,7 +43,7 @@ void CylinderGenerator::addToTriangleBuffer(TriangleBuffer& buffer) const
 	if (mCapped)
 	{
 		buffer.estimateVertexCount((mNumSegHeight+1)*(mNumSegBase+1)+2*(mNumSegBase+1)+2);
-		buffer.estimateIndexCount(mNumSegHeight*(mNumSegBase+1)*6+6*mNumSegBase);		
+		buffer.estimateIndexCount(mNumSegHeight*(mNumSegBase+1)*6+6*mNumSegBase);
 	} else {
 		buffer.estimateVertexCount((mNumSegHeight+1)*(mNumSegBase+1));
 		buffer.estimateIndexCount(mNumSegHeight*(mNumSegBase+1)*6);
@@ -59,12 +59,12 @@ void CylinderGenerator::addToTriangleBuffer(TriangleBuffer& buffer) const
 		{
 			Real x0 = mRadius * cosf(j*deltaAngle);
 			Real z0 = mRadius * sinf(j*deltaAngle);
-			
+
 			addPoint(buffer, Vector3(x0, i*deltaHeight, z0),
 				Vector3(x0,0,z0).normalisedCopy(),
 				Vector2(j/(Real)mNumSegBase, i/(Real)mNumSegHeight));
 
-			if (i != mNumSegHeight) 
+			if (i != mNumSegHeight)
 			{
 				buffer.index(offset + mNumSegBase + 1);
 				buffer.index(offset);

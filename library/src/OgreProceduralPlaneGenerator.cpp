@@ -38,7 +38,7 @@ void PlaneGenerator::addToTriangleBuffer(TriangleBuffer& buffer) const
 	assert(numSegX>0 && numSegY>0 && "Num seg must be positive");
 	assert(!normal.isZeroLength() && "Normal must not be null");
 	assert(sizeX>0. && sizeY>0. && "Size must be positive");
-	
+
 	buffer.rebaseOffset();
 	buffer.estimateVertexCount((numSegX+1)*(numSegY+1));
 	buffer.estimateIndexCount(numSegX*numSegY*6);
