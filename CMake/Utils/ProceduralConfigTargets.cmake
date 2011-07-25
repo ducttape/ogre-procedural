@@ -49,7 +49,7 @@ function(procedural_create_vcproj_userfile TARGETNAME)
 endfunction(procedural_create_vcproj_userfile)
 
 # install targets according to current build type
-function(procedural_install_target TARGETNAME)		
+function(procedural_install_target TARGETNAME)
 	  install(TARGETS ${TARGETNAME}
 		BUNDLE DESTINATION "bin${OgreProcedural_RELEASE_PATH}" CONFIGURATIONS Release None ""
 		RUNTIME DESTINATION "bin${OgreProcedural_RELEASE_PATH}" CONFIGURATIONS Release None ""
@@ -77,5 +77,5 @@ function(procedural_install_target TARGETNAME)
 		LIBRARY DESTINATION "lib${OgreProcedural_LIB_DEBUG_PATH}" CONFIGURATIONS Debug
 		ARCHIVE DESTINATION "lib${OgreProcedural_LIB_DEBUG_PATH}" CONFIGURATIONS Debug
 		FRAMEWORK DESTINATION "lib${OgreProcedural_DEBUG_PATH}/Debug" CONFIGURATIONS Debug
-	  )	  
+	  )
 endfunction(procedural_install_target)

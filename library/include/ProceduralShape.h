@@ -59,14 +59,14 @@ public:
 	{
 		mPoints.push_back(pt);
 		return *this;
-	}	
+	}
 	//---------------------------------------------------------------------------
 	/// Adds a point to the shape
 	inline Shape& addPoint(Ogre::Real x, Ogre::Real y)
 	{
 		mPoints.push_back(Ogre::Vector2(x, y));
 		return *this;
-	}	
+	}
 	//---------------------------------------------------------------------------
 	/// Clears the content of the shape
 	inline Shape& reset()
@@ -80,7 +80,7 @@ public:
 	{
 		return mPoints;
 	}
-	
+
 	/**
 	 * Bounds-safe method to get a point : it will allow you to go beyond the bounds
 	 */
@@ -90,9 +90,9 @@ public:
 			return mPoints[Utils::modulo(i,mPoints.size())];
 		return mPoints[Utils::cap(i,0,mPoints.size()-1)];
 	}
-	
+
 	/**
-	 * Makes the shape a closed shape, ie it will automatically connect 
+	 * Makes the shape a closed shape, ie it will automatically connect
 	 * the last point to the first point.
 	 */
 	inline Shape& close()
@@ -111,7 +111,7 @@ public:
 	{
 		mOutSide = side;
 		return *this;
-	}	
+	}
 	/* --------------------------------------------------------------------------- */
 	/// Gets which side is out
 	inline Side getOutSide() const
@@ -124,17 +124,17 @@ public:
 	{
 		mOutSide = (mOutSide == SIDE_LEFT)? SIDE_RIGHT: SIDE_LEFT;
 		return *this;
-	}	
+	}
 	/// Gets the number of segments in that shape
 	inline size_t getSegCount() const
 	{
 		return (mPoints.size()-1) + (mClosed?1:0);
-	}	
+	}
 	/// Gets whether the shape is closed or not
 	inline bool isClosed() const
 	{
 	  return mClosed;
-	}	
+	}
 
 	/**
 	 * Returns local direction after the current point
@@ -160,13 +160,13 @@ public:
 			return (mPoints[1] - mPoints[0]).normalisedCopy();
 		else
 			return (getPoint(i) - getPoint(i-1)).normalisedCopy();
-	}	
+	}
 
 	/// Gets the average between before direction and after direction
 	inline Ogre::Vector2 getAvgDirection(int i) const
 	{
 		return (getDirectionAfter(i) + getDirectionBefore(i)).normalisedCopy();
-	}	
+	}
 
 	/// Gets the shape normal just after that point
 	inline Ogre::Vector2 getNormalAfter(int i) const
@@ -174,7 +174,7 @@ public:
 		if (mOutSide==SIDE_RIGHT)
 		return -getDirectionAfter(i).perpendicular();
 		return getDirectionAfter(i).perpendicular();
-	}	
+	}
 
 	/// Gets the shape normal just before that point
 	inline Ogre::Vector2 getNormalBefore(int i) const
@@ -182,7 +182,7 @@ public:
 		if (mOutSide==SIDE_RIGHT)
 		return -getDirectionBefore(i).perpendicular();
 		return getDirectionBefore(i).perpendicular();
-	}	
+	}
 
 	/// Gets the "normal" of that point ie an average between before and after normals
 	inline Ogre::Vector2 getAvgNormal(int i) const
@@ -197,7 +197,7 @@ public:
 	 * Mostly for debugging purposes
 	 */
 	Ogre::MeshPtr realizeMesh(const std::string& name="");
-	
+
 	/**
 	 * Appends the shape vertices to a manual object being edited
 	 */
@@ -209,7 +209,7 @@ public:
 	 * @return true if the point is inside this shape, false otherwise
 	 */
 	bool isPointInside(const Ogre::Vector2& point) const;
-	 
+
 	/**
 	 * Computes the intersection between this shape and another one.
 	 * Both shapes must be closed.
@@ -217,25 +217,25 @@ public:
 	 * @return The intersection of two shapes, as a new shape
 	 */
 	MultiShape booleanIntersect(const Shape& other) const;
-	 
+
 	/**
 	 * Computes the union between this shape and another one.
 	 * Both shapes must be closed.
 	 */
 	MultiShape booleanUnion(const Shape& other) const;
-	 
+
 	/**
 	 * Computes the difference between this shape and another one.
 	 * Both shapes must be closed.
 	 */
 	MultiShape booleanDifference(const Shape& other) const;
-	 
+
 	/**
 	 * On a closed shape, find if the outside is located on the right
-	 * or on the left. If the outside can easily be determined, 
+	 * or on the left. If the outside can easily be determined,
 	 * you'd rather use setOutside(), which doesn't need any computation.
 	 */
-	Side findRealOutSide() const;	
+	Side findRealOutSide() const;
 
 	/**
 	 * Applies the given translation to all the points already defined.
@@ -248,7 +248,7 @@ public:
 			*it+=translation;
 		return *this;
 	}
-		
+
 	/**
 	 * Applies the given translation to all the points already defined.
 	 * Has strictly no effect on the points defined after that
@@ -282,7 +282,7 @@ public:
 	 * Applies the given scale to all the points already defined.
 	 * Has strictly no effect on the points defined after that
 	 * @param amount amount of scale
-	 */	
+	 */
 	Shape& scale(Ogre::Real amount)
 	{
 		return scale(amount, amount);
@@ -293,7 +293,7 @@ public:
 	 * Has strictly no effect on the points defined after that
 	 * @param scaleX amount of scale in the X direction
 	 * @param scaleY amount of scale in the Y direction
-	 */	
+	 */
 	Shape& scale(Ogre::Real scaleX, Ogre::Real scaleY)
 	{
 		for (std::vector<Ogre::Vector2>::iterator it = mPoints.begin(); it!=mPoints.end(); it++)
@@ -308,7 +308,7 @@ public:
 	 * Applies the given scale to all the points already defined.
 	 * Has strictly no effect on the points defined after that
 	 * @param amount of scale
-	 */	
+	 */
 	Shape& scale(Ogre::Vector2 amount)
 	{
 		return scale(amount.x, amount.y);
@@ -336,7 +336,7 @@ public:
 		Ogre::Vector2 B = getPoint(i+1);
 		return A + coord*(B-A);
 	}
-	
+
 	/// Gets a position on the shape from lineic coordinate
 	/// @arg coord lineic coordinate
 	inline Ogre::Vector2 getPosition(Ogre::Real coord) const
@@ -364,7 +364,7 @@ public:
 			sqRadius=std::max(sqRadius,mPoints[i].squaredLength());
 		return Ogre::Math::Sqrt(sqRadius);
 	}
-		
+
 	/// Applies a "thickness" to a shape, ie a bit like the extruder, but in 2D
 	MultiShape thicken(Ogre::Real amount);
 
@@ -385,15 +385,15 @@ public:
 			index[1] = j;
 			onVertex[0] = false;
 			onVertex[1] = false;
-		}		
+		}
 	};
 
 	bool _isLookingForOutside(BooleanOperationType opType, char shapeSelector) const;
-	
+
 	char _isIncreasing(Ogre::Real d, BooleanOperationType opType, char shapeSelector) const;
-		
+
 	bool _findWhereToGo(const Shape* inputShapes[], BooleanOperationType opType, IntersectionInShape intersection, Ogre::uint8& shapeSelector, char& isIncreasing, int& currentSegment) const;
-	
+
 	void _findAllIntersections(const Shape& other, std::vector<IntersectionInShape>& intersections) const;
 
 };

@@ -32,19 +32,19 @@ THE SOFTWARE.
 using namespace Ogre;
 
 namespace Procedural
-{	
+{
 //-----------------------------------------------------------------------
 	MeshPtr MultiShape::realizeMesh(const std::string& name)
 	{
 		ManualObject * manual = Root::getInstance()->sceneManager->createManualObject(name);
-				
+
 		for (std::vector<Shape>::iterator it = mShapes.begin(); it!=mShapes.end(); it++)
 		{
 			manual->begin("BaseWhiteNoLighting", RenderOperation::OT_LINE_STRIP);
 			it->_appendToManualObject(manual);
 			manual->end();
-		}		
-		
+		}
+
 		MeshPtr mesh;
 		if (name=="")
 			mesh = manual->convertToMesh(Utils::getName());
@@ -52,18 +52,18 @@ namespace Procedural
 			mesh = manual->convertToMesh(name);
 		Root::getInstance()->sceneManager->destroyManualObject(manual);
 		return mesh;
-	}	
+	}
 //-----------------------------------------------------------------------
 	std::vector<Vector2> MultiShape::getPoints() const
 	{
-		std::vector<Vector2> result;		
+		std::vector<Vector2> result;
 		for (size_t i = 0;i<mShapes.size(); i++)
 		{
 			std::vector<Vector2> points = mShapes[i].getPoints();
 			result.insert(result.end(), points.begin(), points.end());
 		}
 		return result;
-	}	
+	}
 //-----------------------------------------------------------------------
 	bool MultiShape::isPointInside(const Vector2& point) const
 	{
@@ -75,7 +75,7 @@ namespace Procedural
 		const Shape* closestSegmentShape = 0;
 		//bool isOnVertexA = false;
 		//bool isOnVertexB = false;
-		
+
 		for (size_t k =0;k<mShapes.size();k++)
 		{
 			const Shape& shape = mShapes[k];
@@ -85,7 +85,7 @@ namespace Procedural
 				Vector2 B = shape.getPoint(i+1);
 				if (A.y!=B.y && (A.y-point.y)*(B.y-point.y)<=0.)
 				{
-					Vector2 intersect(A.x+(point.y-A.y)*(B.x-A.x)/(B.y-A.y), point.y);			
+					Vector2 intersect(A.x+(point.y-A.y)*(B.x-A.x)/(B.y-A.y), point.y);
 					float dist = abs(point.x-intersect.x);
 					if (dist<closestSegmentDistance)
 					{
@@ -103,12 +103,12 @@ namespace Procedural
 				return (closestSegmentShape->getAvgNormal(closestSegmentIndex).x * (point.x-closestSegmentIntersection.x)<0);
 			if (closestSegmentIntersection.squaredDistance(closestSegmentShape->getPoint(closestSegmentIndex+1))<1e-8)
 				return (closestSegmentShape->getAvgNormal(closestSegmentIndex+1).x * (point.x-closestSegmentIntersection.x)<0);
-			return (closestSegmentShape->getNormalAfter(closestSegmentIndex).x * (point.x-closestSegmentIntersection.x)<0);				
+			return (closestSegmentShape->getNormalAfter(closestSegmentIndex).x * (point.x-closestSegmentIntersection.x)<0);
 		}
 		// the shapes must not contradict each other about outside, so just ask the first shape
 		if (mShapes[0].findRealOutSide() == mShapes[0].getOutSide())
 			return false;
-		else 
+		else
 			return true;
 	}
 //-----------------------------------------------------------------------

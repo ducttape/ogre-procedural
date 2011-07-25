@@ -48,14 +48,14 @@ namespace Procedural
 		Real y2 = itAfter->second;
 		return (pos-x1)/(x2-x1)*(y2-y1)+y1;
 	}
-	
+
 	std::map<Real, Real>::const_iterator Track::_getKeyValueBefore(Real pos) const
 	{
 		std::map<Real, Real>::const_iterator it = mKeyFrames.upper_bound(pos);
 		if (it==mKeyFrames.begin())
 			return it;
 		else
-			return --it; 
+			return --it;
 	}
 
 	std::map<Real, Real>::const_iterator Track::_getKeyValueAfter(Real pos) const
@@ -75,7 +75,7 @@ namespace Procedural
 			return getValue(relPos);
 		return getValue(index);
 	}
-		
+
 	std::map<Real, Real>::const_iterator Track::_getKeyValueBefore(Real absPos, Real relPos, int index) const
 	{
 		if (mAddressingMode == AM_ABSOLUTE_LINEIC)
@@ -84,7 +84,7 @@ namespace Procedural
 			return _getKeyValueBefore(relPos);
 		return _getKeyValueBefore(index);
 	}
-	
+
 	std::map<Real, Real>::const_iterator Track::_getKeyValueAfter(Real absPos, Real relPos, int index) const
 	{
 		if (mAddressingMode == AM_ABSOLUTE_LINEIC)
@@ -93,5 +93,5 @@ namespace Procedural
 			return _getKeyValueAfter(relPos);
 		return _getKeyValueAfter(index);
 	}
-	
+
 }

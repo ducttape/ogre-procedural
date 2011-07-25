@@ -4,27 +4,27 @@ if(NOT OIS_FOUND)
 	message(SEND_ERROR "Failed to find OIS.")
 endif()
 
-  
+
 # if win32, copy the Ogre DLLs and media over
 if(WIN32)
-	copy_release(OgreMain.dll)	
+	copy_release(OgreMain.dll)
 	copy_debug(OgreMain_d.dll)
-	
-	copy_release(RenderSystem_Direct3D9.dll)	
+
+	copy_release(RenderSystem_Direct3D9.dll)
 	copy_debug(RenderSystem_Direct3D9_d.dll)
-		
+
 	copy_release(RenderSystem_GL.dll)
 	copy_debug(RenderSystem_GL_d.dll)
-		
+
 	copy_release(OIS.dll)
-	copy_debug(OIS_d.dll)	
-	
+	copy_debug(OIS_d.dll)
+
 	set(OgreProcedural_PLUGIN_DIR_REL ".")
 	set(OgreProcedural_PLUGIN_DIR_DBG ".")
 
 	set(OGRE_PLUGIN_DIR_REL ".")
 	set(OGRE_PLUGIN_DIR_DBG ".")
-	
+
 endif(WIN32)
 
 # if Linux, copy the Ogre configuration files over
@@ -33,10 +33,10 @@ if(UNIX AND NOT APPLE)
 	set(OgreProcedural_PLUGIN_DIR_REL ".")
 	set(OgreProcedural_PLUGIN_DIR_DBG ".")
 	set(OgreProcedural_COMMENT_RENDERSYSTEM_D3D9 "#")
-	
+
 	#comes from findOgre.cmake (don't know why it doesn't work there...)
 	get_filename_component(OGRE_PLUGIN_DIR_REL ${OGRE_RenderSystem_GL_LIBRARY_REL} PATH)
-	get_filename_component(OGRE_PLUGIN_DIR_DBG ${OGRE_RenderSystem_GL_LIBRARY_DBG} PATH)		
+	get_filename_component(OGRE_PLUGIN_DIR_DBG ${OGRE_RenderSystem_GL_LIBRARY_DBG} PATH)
 
 endif(UNIX AND NOT APPLE)
 

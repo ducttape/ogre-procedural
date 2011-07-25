@@ -34,13 +34,13 @@ macro(has_preprocessor_entry CONTENTS KEYWORD VARIABLE)
 endmacro()
 
 macro(replace_preprocessor_entry VARIABLE KEYWORD NEW_VALUE)
-  string(REGEX REPLACE 
+  string(REGEX REPLACE
     "(// *)?# *define +${KEYWORD} +[^ \n]*"
 	"#define ${KEYWORD} ${NEW_VALUE}"
 	${VARIABLE}_TEMP
 	${${VARIABLE}}
   )
-  set(${VARIABLE} ${${VARIABLE}_TEMP})  
+  set(${VARIABLE} ${${VARIABLE}_TEMP})
 endmacro()
 
 macro(set_preprocessor_entry VARIABLE KEYWORD ENABLE)
@@ -49,12 +49,12 @@ macro(set_preprocessor_entry VARIABLE KEYWORD ENABLE)
   else ()
     set(TMP_REPLACE_STR "// #define ${KEYWORD}")
   endif ()
-  string(REGEX REPLACE 
+  string(REGEX REPLACE
     "(// *)?# *define +${KEYWORD} *\n"
 	${TMP_REPLACE_STR}
 	${VARIABLE}_TEMP
 	${${VARIABLE}}
   )
-  set(${VARIABLE} ${${VARIABLE}_TEMP})  
+  set(${VARIABLE} ${${VARIABLE}_TEMP})
 endmacro()
-  
+

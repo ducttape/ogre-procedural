@@ -11,7 +11,7 @@
 # Once done, this will define
 #
 #  OIS_FOUND - system has OIS
-#  OIS_INCLUDE_DIRS - the OIS include directories 
+#  OIS_INCLUDE_DIRS - the OIS include directories
 #  OIS_LIBRARIES - link these to use OIS
 #  OIS_BINARY_REL / OIS_BINARY_DBG - DLL names (windows only)
 
@@ -26,7 +26,7 @@ getenv_path(OGRE_SOURCE)
 getenv_path(OGRE_DEPENDENCIES_DIR)
 
 # construct search paths
-set(OIS_PREFIX_PATH ${OIS_HOME} ${ENV_OIS_HOME} 
+set(OIS_PREFIX_PATH ${OIS_HOME} ${ENV_OIS_HOME}
   ${OGRE_DEPENDENCIES_DIR} ${ENV_OGRE_DEPENDENCIES_DIR}
   ${OGRE_SOURCE}/iPhoneDependencies ${ENV_OGRE_SOURCE}/iPhoneDependencies
   ${OGRE_SOURCE}/Dependencies ${ENV_OGRE_SOURCE}/Dependencies

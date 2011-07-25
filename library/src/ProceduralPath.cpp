@@ -39,7 +39,7 @@ namespace Procedural
 		Quaternion q;
 		Quaternion lastQ = Utils::_computeQuaternion(getAvgDirection(0));
 		for (unsigned int i=1;i<mPoints.size();i++)
-		{	
+		{
 			Quaternion q = Utils::_computeQuaternion(getAvgDirection(i));
 			Ogre::Vector3& v0 = mPoints[i];
 			Plane plane1(lastQ * Vector3::UNIT_Z, lastV0);
@@ -67,7 +67,7 @@ namespace Procedural
 		if (!track.isInsertPoint() || track.getAddressingMode() == Track::AM_POINT)
 			return *this;
 		Real totalLength=getTotalLength();
-		
+
 		Real lineicPos = 0;
 		Real pathLineicPos = 0;
 		Path outputPath;
@@ -80,7 +80,7 @@ namespace Procedural
 			if (nextLineicPos<=it->first || lineicPos>=it->first)
 			{
 				outputPath.addPoint(mPoints[i]);
-				i++;				
+				i++;
 				lineicPos = nextLineicPos;
 				pathLineicPos = nextLineicPos;
 			}
@@ -99,14 +99,14 @@ namespace Procedural
 	Ogre::MeshPtr Path::realizeMesh(const std::string& name)
 	{
 		Ogre::ManualObject * manual = Root::getInstance()->sceneManager->createManualObject();
-		manual->begin("BaseWhiteNoLighting", Ogre::RenderOperation::OT_LINE_STRIP);			   
-		
-		for (std::vector<Ogre::Vector3>::iterator itPos = mPoints.begin(); itPos != mPoints.end();itPos++)		
-			manual->position(*itPos);		
+		manual->begin("BaseWhiteNoLighting", Ogre::RenderOperation::OT_LINE_STRIP);
+
+		for (std::vector<Ogre::Vector3>::iterator itPos = mPoints.begin(); itPos != mPoints.end();itPos++)
+			manual->position(*itPos);
 		if (mClosed)
 			manual->position(*(mPoints.begin()));
 		manual->end();
-				
+
 		Ogre::MeshPtr mesh;
 		if (name=="")
 			mesh = manual->convertToMesh(Utils::getName());

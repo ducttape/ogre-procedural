@@ -40,7 +40,7 @@ protected:
 	/// Tells if the spline is closed or not
 	bool mClosed;
 public:
-	BaseSpline3() : mNumSeg(4), mClosed(false) {}	
+	BaseSpline3() : mNumSeg(4), mClosed(false) {}
 
 	/// Sets the number of segments between 2 control points
 	T& setNumSeg(int numSeg)
@@ -49,7 +49,7 @@ public:
 		mNumSeg = numSeg;
 		return (T&)*this;
 	}
-	
+
 	/// Closes the spline
 	T& close()
 	{
@@ -64,29 +64,29 @@ public:
  * a spline for which position is smoothly interpolated between control points
  */
 class _ProceduralExport CatmullRomSpline3 : public BaseSpline3<CatmullRomSpline3>
-{	
+{
 	std::vector<Ogre::Vector3> mPoints;
-	public:	
+	public:
 	/// Default constructor
 	CatmullRomSpline3() {}
-	
+
 	/// Copy constructor from an Ogre simplespline
-	CatmullRomSpline3(const Ogre::SimpleSpline& input) 
+	CatmullRomSpline3(const Ogre::SimpleSpline& input)
 	{
 		mPoints.resize(input.getNumPoints());
 		for (unsigned short i=0; i<input.getNumPoints(); i++)
 			mPoints.push_back(input.getPoint(i));
 	}
-	
+
 	/// Outputs current spline to an Ogre spline
-	Ogre::SimpleSpline toSimpleSpline() const 
+	Ogre::SimpleSpline toSimpleSpline() const
 	{
 		Ogre::SimpleSpline spline;
 		for (unsigned short i=0;i<mPoints.size();i++)
 			spline.addPoint(mPoints[i]);
 		return spline;
 	}
-	
+
 	/// Adds a control point
 	CatmullRomSpline3& addPoint(const Ogre::Vector3& pt)
 	{
@@ -100,7 +100,7 @@ class _ProceduralExport CatmullRomSpline3 : public BaseSpline3<CatmullRomSpline3
 		mPoints.push_back(Ogre::Vector3(x,y,z));
 		return *this;
 	}
-	
+
 	/// Safely gets a control point
 	const Ogre::Vector3& safeGetPoint(int i) const
 	{
@@ -108,11 +108,11 @@ class _ProceduralExport CatmullRomSpline3 : public BaseSpline3<CatmullRomSpline3
 			return mPoints[Utils::modulo(i,mPoints.size())];
 		return mPoints[Utils::cap(i,0,mPoints.size()-1)];
 	}
-	
+
 	/**
 	 * Build a path from Catmull-Rom control points
 	 */
-	Path realizePath();	
+	Path realizePath();
 };
 //-----------------------------------------------------------------------
 /// Builds a line Path between 2 points
@@ -138,7 +138,7 @@ public:
 		mPoint2 = point2;
 		return *this;
 	}
-	
+
 	/// Sets the number of segments for this line
 	LinePath& setNumSeg(int numSeg)
 	{

@@ -44,11 +44,11 @@ typedef std::vector<Ogre::Vector2> PointList;
  * It works on Shapes to build Triangle Buffers
  */
 class _ProceduralExport Triangulator : public MeshGenerator<Triangulator>
-{	
+{
 	struct Triangle;
 	struct DelaunaySegment;
-	typedef std::list<Triangle> DelaunayTriangleBuffer;	
-	
+	typedef std::list<Triangle> DelaunayTriangleBuffer;
+
 //-----------------------------------------------------------------------
 struct DelaunaySegment
 {
@@ -65,7 +65,7 @@ struct DelaunaySegment
 	{
 		return DelaunaySegment(i2, i1);
 	}
-};	
+};
 
 	//-----------------------------------------------------------------------
 struct Triangle
@@ -90,15 +90,15 @@ struct Triangle
 	{
 		return 1.f/3.f * (p(0)+p(1)+p(2));
 	}
-	
+
 	void setVertices(int i0, int i1, int i2);
 
 	int findSegNumber(int i0, int i1) const;
 
 	bool isPointInside(const Ogre::Vector2& point);
-	
+
 	bool containsSegment(int i0, int i1) const
-	{		
+	{
 		return ((i0==i[0] || i0==i[1] || i0==i[2])&&(i1==i[0] || i1==i[1] || i1==i[2]));
 	}
 
@@ -131,7 +131,7 @@ struct TouchSuperTriangle
 	void addConstraints(const MultiShape& multiShape, DelaunayTriangleBuffer& tbuffer, const PointList& pl) const;
 	void _recursiveTriangulatePolygon(const DelaunaySegment& cuttingSeg, std::vector<int> inputPoints, DelaunayTriangleBuffer& tbuffer, const PointList&  pl) const;
 
-public:	
+public:
 
 	/// Default ctor
 	Triangulator() : mShapeToTriangulate(0), mMultiShapeToTriangulate(0) {}
@@ -150,13 +150,13 @@ public:
 		mMultiShapeToTriangulate = multiShape;
 		return *this;
 	}
-	
+
 	/**
 	 * Executes the Constrained Delaunay Triangulation algorithm
 	 * @arg ouput A vector of index where is outputed the resulting triangle indexes
 	 */
 	void triangulate(std::vector<int>& output, PointList& outputVertices) const;
-	
+
 	/**
 	 * Builds the mesh into the given TriangleBuffer
 	 * @param buffer The TriangleBuffer on where to append the mesh.

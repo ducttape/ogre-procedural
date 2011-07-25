@@ -100,7 +100,7 @@ public:
 	std::map<Ogre::Real, Ogre::Real>::const_iterator _getKeyValueAfter(Ogre::Real absPos, Ogre::Real relPos, int index) const;
 
 	/// Get the key value couple after current point.
-	/// If current point is above maximum key, issues maximum key/value	
+	/// If current point is above maximum key, issues maximum key/value
 	std::map<Ogre::Real, Ogre::Real>::const_iterator _getKeyValueAfter(Ogre::Real pos) const;
 
 	/// Gets the first value in the track

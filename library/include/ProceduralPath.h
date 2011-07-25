@@ -76,7 +76,7 @@ public:
 		mClosed = true;
 		return *this;
 	}
-	
+
 	/** Tells if the path is closed or not */
 	bool isClosed()
 	{
@@ -158,7 +158,7 @@ public:
 		Ogre::Vector3 B = getPoint(i+1);
 		return A + coord*(B-A);
 	}
-	
+
 	/// Gets a position on the shape from lineic coordinate
 	/// @arg coord lineic coordinate
 	 Ogre::Vector3 getPosition(Ogre::Real coord) const;

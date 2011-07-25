@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.6)
 
 project(OgreProcedural)
 
-set(CMAKE_MODULE_PATH 
+set(CMAKE_MODULE_PATH
   "${OgreProcedural_SOURCE_DIR}/CMake"
   "${OgreProcedural_SOURCE_DIR}/CMake/Utils"
   "${OgreProcedural_SOURCE_DIR}/CMake/Packages"
@@ -50,12 +50,12 @@ include_directories("${OgreProcedural_SOURCE_DIR}/library/include")
 add_subdirectory(library)
 
 # definitions for samples
-set(OgreProcedural_LIBRARIES OgreProcedural) 
+set(OgreProcedural_LIBRARIES OgreProcedural)
 
 #useful macros for samples and tests
 include(ProceduralMacros)
 
-if (OgreProcedural_BUILD_SAMPLES)	
+if (OgreProcedural_BUILD_SAMPLES)
 	add_subdirectory(samples)
 endif()
 

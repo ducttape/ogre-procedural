@@ -442,7 +442,7 @@ void Shape::_appendToManualObject(ManualObject* manual)
 }
 //-----------------------------------------------------------------------
 MultiShape Shape::thicken(Real amount)
-	{		
+	{
 		if (!mClosed)
 		{
 			Shape s;
@@ -453,8 +453,8 @@ MultiShape Shape::thicken(Real amount)
 				s.addPoint(mPoints[i]-amount*getAvgNormal(i));
 			s.close();
 			return MultiShape().addShape(s);
-		} 
-		else 
+		}
+		else
 		{
 			MultiShape ms;
 			Shape s1;
@@ -464,12 +464,12 @@ MultiShape Shape::thicken(Real amount)
 			s1.setOutSide(mOutSide);
 			ms.addShape(s1);
 			Shape s2;
-			for (unsigned int i=0;i<mPoints.size();i++)			
+			for (unsigned int i=0;i<mPoints.size();i++)
 				s2.addPoint(mPoints[i]-amount*getAvgNormal(i));
 			s2.close();
 			s2.setOutSide(mOutSide==SIDE_LEFT?SIDE_RIGHT:SIDE_LEFT);
 			ms.addShape(s2);
-			return ms;						
+			return ms;
 		}
 	}
 }
