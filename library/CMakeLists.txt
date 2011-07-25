@@ -88,7 +88,7 @@ target_link_libraries(OgreProcedural ${OGRE_LIBRARIES} ${OIS_LIBRARIES})
 
 procedural_install_target(OgreProcedural)
 
-install(FILES ${HDRS} DESTINATION include)
+install(FILES ${HDRS} DESTINATION include/OgreProcedural)
 
 # specify a precompiled header to use
 use_precompiled_header(OgreProcedural
