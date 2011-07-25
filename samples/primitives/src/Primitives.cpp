@@ -26,7 +26,7 @@ THE SOFTWARE.
 -----------------------------------------------------------------------------
 */
 #include "Primitives.h"
-#include "Procedural.h"
+#include "OgreProcedural.h"
 
 //-------------------------------------------------------------------------------------
 void Sample_Primitives::createScene(void)

@@ -26,7 +26,7 @@ THE SOFTWARE.
 -----------------------------------------------------------------------------
 */
 #include "Tests.h"
-#include "Procedural.h"
+#include "OgreProcedural.h"
 
 //-------------------------------------------------------------------------------------
 void Unit_Tests::createScene(void)

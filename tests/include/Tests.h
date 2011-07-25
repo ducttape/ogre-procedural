@@ -29,7 +29,7 @@ THE SOFTWARE.
 #define __Test_h_
 
 #include "BaseApplication.h"
-#include "Procedural.h"
+#include "OgreProcedural.h"
 using namespace Ogre;
 using namespace Procedural;
 

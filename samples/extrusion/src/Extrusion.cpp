@@ -26,7 +26,7 @@ THE SOFTWARE.
 -----------------------------------------------------------------------------
 */
 #include "Extrusion.h"
-#include "Procedural.h"
+#include "OgreProcedural.h"
 
 //-------------------------------------------------------------------------------------
 void Sample_Extrusion::createScene(void)
