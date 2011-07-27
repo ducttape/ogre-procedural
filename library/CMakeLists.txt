@@ -67,7 +67,7 @@ include_directories( ${OIS_INCLUDE_DIRS}
 )
 add_definitions(-DOgreProcedural_NONCLIENT_BUILD -Wall -Werror -Wno-unused-parameter -Wno-unused-but-set-parameter -pedantic -std=c++0x)
 
-add_library(OgreProcedural SHARED ${HDRS} ${SRCS})
+add_library(OgreProcedural STATIC ${HDRS} ${SRCS})
 
 set_target_properties(OgreProcedural PROPERTIES DEBUG_POSTFIX _d)
 
