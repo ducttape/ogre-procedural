@@ -32,7 +32,7 @@ set( HDRS
 	include/OgreProceduralStableHeaders.h
 	include/OgreProceduralMultiShape.h
 	include/OgreProceduralGeometryHelpers.h
-	)
+)
 
 set( SRCS
 		src/OgreProceduralBoxGenerator.cpp
@@ -59,13 +59,16 @@ set( SRCS
 		src/OgreProceduralPrecompiledHeaders.cpp
 		src/OgreProceduralMultiShape.cpp
 		src/OgreProceduralGeometryHelpers.cpp
-	)
+)
 
 include_directories( ${OIS_INCLUDE_DIRS}
 	${OGRE_INCLUDE_DIRS}
 	${OGRE_SAMPLES_INCLUDEPATH}
 )
+
 add_definitions(-Wall -Werror -Wno-unused-parameter -Wno-unused-but-set-parameter -pedantic -std=c++0x)
+# If you build static, you need to also add a definition: -DOgreProcedural_STATIC
+# This is because it needs to know not to export symbols in static libraries on Windows.
 
 add_library(OgreProcedural SHARED ${HDRS} ${SRCS})
 
