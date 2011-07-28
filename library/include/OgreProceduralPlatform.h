@@ -22,14 +22,17 @@
 #if OGRE_PLATFORM == OGRE_PLATFORM_LINUX || OGRE_PLATFORM == OGRE_PLATFORM_APPLE || OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS || OGRE_PLATFORM == OGRE_PLATFORM_IPHONE || OGRE_PLATFORM == OGRE_PLATFORM_ANDROID || OGRE_PLATFORM == OGRE_PLATFORM_TEGRA2
 #   define _ProceduralExport
 #elif PROCEDURAL_PLATFORM == PROCEDURAL_PLATFORM_WIN32 && !defined(OgreProcedural_STATIC)
- #      if defined( OgreProcedural_EXPORTS )
- #          define _ProceduralExport __declspec( dllexport )
- #      else
- #           if defined( __MINGW32__ )
- #               define _ProceduralExport
- #           else
- #              define _ProceduralExport __declspec( dllimport )
- #           endif
+#      if defined( OgreProcedural_EXPORTS )
+#          define _ProceduralExport __declspec( dllexport )
+#      else
+#           if defined( __MINGW32__ )
+#               define _ProceduralExport
+#           else
+#              define _ProceduralExport __declspec( dllimport )
+#           endif
 #      endif
+#else
+#   define _ProceduralExport
 #endif
+
 #endif
